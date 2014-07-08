@@ -17,10 +17,6 @@
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-	.navbar .navbar-brand {
-		padding: 14px 15px 0;
-		font-size: 18px;
-	}
 	.navbar .nav > li > a {
 		padding: 14px 10px;
 		border-top: 1px solid #f6f6f6;
@@ -106,10 +102,6 @@
 		padding-top: 0;
 		background-size: 590px auto;
 		min-height: 560px;
-	}
-	.navbar .navbar-brand {
-		padding: 15px 15px 0;
-		font-size: 18px;
 	}
 	.navbar-fixed-top, 
 	.navbar-fixed-bottom, 
@@ -287,20 +279,10 @@
 	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 768px) {
+	.content-brand {
+		margin: 10px 0;
+		width: 60px;
+		height: 60px;
+	}
+}

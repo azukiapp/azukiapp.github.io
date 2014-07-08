@@ -218,10 +218,11 @@ p, ul { color: rgba(34,42,49,.7); }
 /* ======================================================================== */
 /* ! Nav
 /* ======================================================================== */
-.navbar .navbar-brand {
-	color: #222a31;
-	padding: 24px 15px 0;
-	font-size: 30px;
+.content-brand {
+	display: block;
+	margin: 5px 15px;
+	width: 40px;
+	height: 40px;
 }
 .nav {
 	font: normal 16px/16px "ProximaNova-Semibold", Arial, Helvetica, Geneva, sans-serif;
@@ -653,4 +654,14 @@ input[type="color"],
 	-ms-box-shadow: none;
 	box-shadow: none;
 	text-shadow: none;
+}
+
+
+
+
+
+
+/* HELPERS */
+.img-responsive {
+	width: 100%;
 }
