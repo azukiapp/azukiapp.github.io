@@ -281,17 +281,21 @@
 
 @media (min-width: 768px) {
 	.content-brand {
-		margin: 10px 0;
-		width: 50px;
-		height: 50px;
+		width: 45px;
+		height: 45px;
 	}
-	.navbar-nav {
-		margin-top: 10px;
+	.navbar .nav > li > a {
+		padding-top: 20px;
 	}
 }
 
 @media (min-width: 992px) {
 	.content-brand {
 		width: 80px;
-		height: 80px;
+		height: 90px;
 	}
+	.navbar .nav > li > a {
+		padding-top: 35px;
+		padding-bottom: 35px;
+	}
+}
