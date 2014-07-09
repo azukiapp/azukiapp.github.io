@@ -662,6 +662,27 @@ input[type="color"],
 	text-shadow: none;
 }
 
+/* MODULES */
+.details-list {
+	margin-bottom: 20px;
+	padding: 0;
+	list-style: none;
+}
+.details-list:first-child {
+	margin-top: 40px;
+}
+.details-list__sumary {
+	font-size: 20px;
+	font-weight: 100;
+	line-height: 30px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	color: #24AFAA;
+}
+.details-list__text {
+	margin-left: 22px;
+}
+
 
 /* HELPERS */
 .img-responsive {
@@ -670,5 +691,11 @@ input[type="color"],
 
 .u-margin-bottom {
 	margin-bottom: 30px;
+}
+
+.simple-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
