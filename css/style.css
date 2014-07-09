@@ -667,3 +667,8 @@ input[type="color"],
 .img-responsive {
 	width: 100%;
 }
+
+.u-margin-bottom {
+	margin-bottom: 30px;
+}
+
