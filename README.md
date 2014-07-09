@@ -10,7 +10,7 @@ AZK é uma ferramenta de código aberto para automação da montagem e da gestã
 	`http://nodejs.org/download`
 ### Instale Grunt
 	`npm install -g grunt-cli`
-### Instale Dependencies
+### Instale as dependências
 	`npm install`
 
 ## Rodando local
