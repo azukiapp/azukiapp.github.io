@@ -208,7 +208,7 @@
 	}
 	footer ul.inline > li, 
 	footer ol.inline > li,
-	footer .copyright {
+	footer > .copyright {
 		display: block;
 		text-align: center;
 		padding: 10px 0;

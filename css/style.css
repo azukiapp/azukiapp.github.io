@@ -683,19 +683,26 @@ input[type="color"],
 	margin-left: 22px;
 }
 
-
-/* HELPERS */
-.img-responsive {
-	width: 100%;
-}
-
-.u-margin-bottom {
-	margin-bottom: 30px;
-}
-
 .simple-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
+.copyright {
+	color: #FFF;
+}
+
+
+/* HELPERS */
+.img-responsive {
+	width: 100%;
+}
+
+.is-font-small {
+	font-size: 24px;
+}
+
+.u-margin-bottom {
+	margin-bottom: 30px;
+}
