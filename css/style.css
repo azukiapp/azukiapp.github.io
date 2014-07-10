@@ -662,7 +662,9 @@ input[type="color"],
 	text-shadow: none;
 }
 
-/* MODULES */
+/* ======================================================================== */
+/* ! MODULES
+/* ======================================================================== */
 .details-list {
 	margin-bottom: 20px;
 	padding: 0;
@@ -693,8 +695,15 @@ input[type="color"],
 	color: #FFF;
 }
 
+.prettyprint ol.linenums > li { list-style-type: decimal; }
+li.L1, li.L3, li.L5, li.L7, li.L9 {background-color: transparent;}
+.prettyprint { font-size: 14px; color: #999;}
+pre.prettyprint {padding: 15px 10px;}
 
-/* HELPERS */
+
+/* ======================================================================== */
+/* ! HELPERS
+/* ======================================================================== */
 .img-responsive {
 	width: 100%;
 }
@@ -705,4 +714,68 @@ input[type="color"],
 
 .u-margin-bottom {
 	margin-bottom: 30px;
+}
+
+
+
+
+.brackets {
+	margin-top: 20px;
+}
+
+.bracket {
+	border-right: 2px solid #FD6740;
+	position: relative;
+	padding-right: 5px;
+}
+
+.bracket:before,
+.bracket:after {
+	content: "";
+	position: absolute;
+	right: -8px;
+	display: block;
+	height: 2px;
+	width: 6px;
+	background: #FD6740;
+}
+.bracket:before {
+	top: 0;
+}
+.bracket:after {
+	bottom: 0;
+}
+
+@media (max-width: 970px) {
+    .brackets {
+        display:none
+    }
+}
+
+@media (max-width: 768px) {
+    .brackets {
+        display:none
+    }
+}
+
+.bracket .fa {
+	margin-right: 5px;
+}
+
+.bracket1 {
+	padding-top: 55px;
+	padding-bottom: 55px;
+}
+
+.bracket2 {
+	padding-top: 8;
+	padding-bottom: 8px;
+	margin-top: 36px;
+}
+
+.bracket3 {
+	padding-top: 36px;
+	padding-bottom: 36px;
+	margin-top: 160px;
+}
 }
