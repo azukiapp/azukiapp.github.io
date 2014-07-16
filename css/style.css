@@ -422,7 +422,7 @@ p, ul { color: rgba(34,42,49,.7); }
 }
 .carousel-indicators li,
 .carousel-indicators li.active {
-	width: auto;
+	/*width: auto;*/
 	height: auto;
 	border: none;
 	margin: 0;
@@ -486,6 +486,11 @@ p, ul { color: rgba(34,42,49,.7); }
 }
 .carousel-control.right {
 	right: -10px;
+}
+
+/*Isso está chumbado pois não enxerguei outra alternativa*/
+.carousel-indicators .testimonial-style {
+	width: 25%;
 }
 /* ======================================================================== */
 /* ! Footer
