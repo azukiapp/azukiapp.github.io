@@ -1,18 +1,39 @@
 # AZK
 
-> Este é a landing page do AZK.
+## English Version
 
-AZK é uma ferramenta de código aberto para automação da montagem e da gestão de ambientes de desenvolvimento.
+AZK landing page: [http://azukiapp.github.io/](http://azukiapp.github.io/)
 
-## Instalação
+AZK is an open-source tool to help automate and manage the setup of developer environments. You can check the project [here](https://github.com/azukiapp/azk).
 
-### Instale Nodejs
+### Installation
+
+#### Install Nodejs
 	http://nodejs.org/download
-### Instale Grunt
+#### Install Grunt
 	npm install -g grunt-cli
-### Instale as dependências
+#### Install dependencies
 	npm install
 
-## Rodando local
-### Comando
+### Running locally
+#### Command
+	grunt
+
+## Portuguese Version
+
+AZK landing page: [http://azukiapp.github.io/](http://azukiapp.github.io/)
+
+AZK é uma ferramenta de código aberto para automação da montagem e da gestão de ambientes de desenvolvimento. Você pode checar o projeto [aqui](https://github.com/azukiapp/azk).
+
+### Instalação
+
+#### Instale Nodejs
+	http://nodejs.org/download
+#### Instale Grunt
+	npm install -g grunt-cli
+#### Instale as dependências
+	npm install
+
+### Rodando local
+#### Comando
 	grunt
