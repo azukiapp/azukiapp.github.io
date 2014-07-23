@@ -185,7 +185,7 @@ strong {
 	top: -80px;
 }
 .bordered {
-	border: 5px solid #fff;
+	border: 5px solid #24afaa;
 	display: inline-block;
 }
 .full-rounded {
@@ -453,14 +453,21 @@ p, ul { color: rgba(34,42,49,.7); }
 	position: relative;
 	padding: 30px 30px 30px 90px;
 	border-radius: 5px;
-	background: rgba(255,255,255,.2) url('../images/blockquote.png') no-repeat 22px 35px;
+	background: #2fb4cb url('../images/blockquote.png') no-repeat 22px 35px;
 	font-size: 20px;
 	font-style: italic;
 	line-height: 25px;
+	color: #FFF;
 }
 .carousel-inner .item blockquote a {
 	text-decoration: underline;
 	font-style: normal;
+	color: #FFF;
+}
+.carousel-inner .item blockquote a:hover {
+	text-decoration: underline;
+	font-style: normal;
+	color: #000;
 }
 .carousel-indicators li.active .arrow,
 .carousel-indicators li.active:hover .arrow {
@@ -471,7 +478,7 @@ p, ul { color: rgba(34,42,49,.7); }
 	border-bottom: 30px solid transparent;
 	border-left: 30px solid transparent;
 	border-right: 30px solid transparent;
-	border-bottom-color: rgba(255,255,255,.2);
+	border-bottom-color: #2fb4cb;
 
 	position: absolute;
 	bottom: 0;
