@@ -407,6 +407,7 @@ p, ul { color: rgba(34,42,49,.7); }
 .carousel-indicators {
 	position: relative;
 	right: auto;
+	height: 300px;
 	left: auto;
 	top: 0;
 	text-align: center;
@@ -422,8 +423,8 @@ p, ul { color: rgba(34,42,49,.7); }
 }
 .carousel-indicators li,
 .carousel-indicators li.active {
-	width: auto;
-	height: auto;
+	/*width: auto;*/
+	height: 300px;
 	border: none;
 	margin: 0;
 }
@@ -452,6 +453,10 @@ p, ul { color: rgba(34,42,49,.7); }
 	font-style: italic;
 	line-height: 25px;
 }
+.carousel-inner .item blockquote a {
+	text-decoration: underline;
+	font-style: normal;
+}
 .carousel-indicators li.active .arrow,
 .carousel-indicators li.active:hover .arrow {
 	width: 0;
@@ -462,6 +467,10 @@ p, ul { color: rgba(34,42,49,.7); }
 	border-left: 30px solid transparent;
 	border-right: 30px solid transparent;
 	border-bottom-color: rgba(255,255,255,.2);
+
+	position: absolute;
+	bottom: 0;
+	right: 40%;
 }
 .carousel-indicators li .arrow,
 .carousel-indicators li:hover .arrow {
@@ -486,6 +495,11 @@ p, ul { color: rgba(34,42,49,.7); }
 }
 .carousel-control.right {
 	right: -10px;
+}
+
+/*Isso está chumbado pois não enxerguei outra alternativa*/
+.carousel-indicators .testimonial-style {
+	width: 25%;
 }
 /* ======================================================================== */
 /* ! Footer
