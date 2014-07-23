@@ -222,7 +222,7 @@ p, ul { color: rgba(34,42,49,.7); }
 	display: block;
 	margin-left: 10px;
 	width: 40px;
-	height: 40px;
+	height: 54px;
 }
 .content-brand__image {
 	margin-top: 5px;
@@ -233,6 +233,11 @@ p, ul { color: rgba(34,42,49,.7); }
 	font: normal 16px/16px "ProximaNova-Semibold", Arial, Helvetica, Geneva, sans-serif;
 	text-shadow: none;	
 }
+
+.navbar .container {
+	padding: 10px 60px 10px 60px;
+}
+
 .navbar-inner {
 	background: #fff;
 	background-image: none;
@@ -657,66 +662,84 @@ pre.prettyprint {padding: 15px 10px;}
 	margin-bottom: 30px;
 }
 
-
-
-
-.brackets {
-	margin-top: 20px;
-}
-
-.bracket {
-	border-right: 2px solid #FD6740;
-	position: relative;
-	padding-right: 5px;
-}
-
-.bracket:before,
-.bracket:after {
-	content: "";
-	position: absolute;
-	right: -8px;
-	display: block;
-	height: 2px;
-	width: 6px;
-	background: #FD6740;
-}
-.bracket:before {
-	top: 0;
-}
-.bracket:after {
-	bottom: 0;
-}
-
 @media (max-width: 970px) {
-    .brackets {
+    .callouts, .brackets {
         display:none
     }
 }
 
 @media (max-width: 768px) {
-    .brackets {
+    .callouts, .brackets {
         display:none
     }
 }
 
-.bracket .fa {
-	margin-right: 5px;
+.callouts, .brackets {
+	/*border: #000 solid 1px ;*/
+	margin-top: 65px;
 }
 
-.bracket1 {
-	padding-top: 55px;
-	padding-bottom: 55px;
+.callouts {
+	width: 250px;
+	float: left;
 }
 
-.bracket2 {
-	padding-top: 8;
-	padding-bottom: 8px;
-	margin-top: 36px;
+.brackets {
+	width: 7px;
+	float: right;
 }
 
-.bracket3 {
-	padding-top: 36px;
-	padding-bottom: 36px;
-	margin-top: 160px;
+.callout, .bracket {
+	margin: 0;
+	margin-top: 10px;
+	height: 50px;
+	/*overflow: hidden;*/
+	vertical-align: middle;
+}
+
+.callout {
+	/*border: #000 solid 2px;*/
+}
+
+.bracket {
+	border: 2px solid #FD6740;
+	border-right: none;
+}
+
+.bracket1, .callout1 {
+	margin-top: 0px;
+	min-height: 60px;
+}
+
+.bracket2, .callout2 {
+	height: 80px;
+	padding-top: 20px;
+}
+
+.bracket3, .callout3 {
+	height: 100px;
+	padding-top: 40px;
+}
+
+.bracket4, .callout4 {
+	height: 80px;
+	padding-top: 20px;
+}
+
+.bracket5, .callout5 {
+	height: 50px;
+	padding-top: 20px;
+}
+
+.bracket6, .callout6 {
+	margin-top: 80px;
+	height: 20px;
+	max-height: 20px;
+	/*padding-top: 20px;*/
+}
+
+.bracket7, .callout7 {
+	height: 40px;
+	/*padding-top: 20px;*/
 }
 }
