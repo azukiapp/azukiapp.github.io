@@ -1,9 +1,11 @@
 //Nav
 jQuery(document).ready(function ($){
-    jQuery('.navbar .nav > li > a, .footer-nav > li > a').click(function(){
+    jQuery('.navbar .nav > li > a, .footer-nav > li > a').click(function(event){
+    	var href = $.attr(this, 'href');
         jQuery.scrollTo( $(this).attr("href"), {
 			duration: 1000,
-			easing:'easeInOutExpo'			
+			easing:'easeInOutExpo',
+			onAfter: function() { window.location.hash = href; }
 		});
 		return false;
     });
