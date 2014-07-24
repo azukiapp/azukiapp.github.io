@@ -1,10 +1,10 @@
 {
-  "name": "azukiapp",
+  "name": "azk",
   "version": "0.3.1",
-  "homepage": "https://github.com/azukiapp/azukiapp.github.io",
+  "homepage": "https://azk.io",
   "description": "azk is a tool that assists web developers in the creation, maintenance and isolation of development environments through automation",
   "main": "js/custom.js",
-  "license": "MIT",
+  "license": "Apache",
   "private": true,
   "ignore": [
     "**/.*",
