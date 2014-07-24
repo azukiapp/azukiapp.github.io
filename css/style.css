@@ -262,7 +262,7 @@ p, ul { color: rgba(34,42,49,.7); }
 #forkme img {
 	width: auto;
 	z-index: 100000;
-	position: fixed;
+	position: fix;
 	top: 0;
 	right: 0;
 	border: 0;
@@ -691,7 +691,6 @@ pre.prettyprint {padding: 15px 10px;}
 }
 
 .callouts, .brackets {
-	/*border: #000 solid 1px ;*/
 	margin-top: 65px;
 }
 
@@ -709,12 +708,7 @@ pre.prettyprint {padding: 15px 10px;}
 	margin: 0;
 	margin-top: 10px;
 	height: 50px;
-	/*overflow: hidden;*/
 	vertical-align: middle;
-}
-
-.callout {
-	/*border: #000 solid 2px;*/
 }
 
 .bracket {
@@ -751,11 +745,9 @@ pre.prettyprint {padding: 15px 10px;}
 	margin-top: 80px;
 	height: 20px;
 	max-height: 20px;
-	/*padding-top: 20px;*/
 }
 
 .bracket7, .callout7 {
 	height: 40px;
-	/*padding-top: 20px;*/
 }
 }
