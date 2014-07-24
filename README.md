@@ -19,6 +19,14 @@ AZK is an open-source tool to help automate and manage the setup of developer en
 #### Command
 	grunt
 
+### Deploy
+
+Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` file and run:
+
+```bash
+$ azk shell -c "grunt deploy"
+```
+
 ## Portuguese Version
 
 AZK landing page: [http://azukiapp.github.io/](http://azukiapp.github.io/)
@@ -37,3 +45,11 @@ AZK é uma ferramenta de código aberto para automação da montagem e da gestã
 ### Rodando local
 #### Comando
 	grunt
+
+### Deploy
+
+Adicione as chaves `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` e `AWS_BUCKET` no arquivo local `.env` e depois execute:
+
+```bash
+$ azk shell -c "grunt deploy"
+```
