@@ -9,6 +9,8 @@ jQuery(document).ready(function ($){
 		});
 		return false;
     });
+
+    $('body').scrollspy({ target: '.navbar-collapse' });
 });
 
 var tpj=jQuery;
