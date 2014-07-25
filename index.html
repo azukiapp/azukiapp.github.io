@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen">
     <!-- Landlr Style -->
     <link href="css/colors.css" rel="stylesheet">
+    <link href="css/prettify-tomorrow-night.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/prettify-tomorrow-night.css" rel="stylesheet">
     <!-- Favicon and touch icons  -->
     <link href="ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
     <link href="ico/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
@@ -31,12 +31,12 @@
     <script src="js/html5shiv.js"></script>
     <![endif]-->
   </head>
-  <body class="page-aqua">
+  <body class="page-aqua" data-spy="scroll" data-target=".navbar-collapse">
     <div id="back"></div>
     <!-- Navigation -->
     <header>
-      <a href="https://github.com/azukiapp/azk" id="forkme"><img src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <a href="https://github.com/you" class="visible-md visible-lg"><img style="position: absolute; top: 0; right: 0; border: 0;height: 160px;width: 160px;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -52,8 +52,8 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
               <li><a href="#azkfile">Azkfile.js</a></li>
-              <li><a href="#feature">Features</a></li>
               <li><a href="#use-case">Use Cases</a></li>
               <!-- <li><a href="#sponsors">Sponsors</a></li> -->
               <li><a href="#testimonials">Testimonials</a></li>
@@ -80,80 +80,9 @@
           </div>
         </div>
       </section>
-      <!-- Azkfile.js -->
-      <section class="wrapper bg-turquoise colored">
-        <a class="anchor" id="azkfile"></a>
-        <div class="container">
-          <div class="row">
-            <div class="text-center col-sm-12 col-lg-12">
-              <hgroup>
-                <h2>Azkfile.js</h2>
-                <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
-              </hgroup>
-            </div>
-          </div>
-          <!-- Brackets -->
-          <div class="row">
-            <div class="col-md-offset-1 col-md-3">
-              <div class="callouts">
-                <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
-                <p class="callout callout2">Specify requisites for running your system.<i></i></p>
-                <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
-                <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
-                <p class="callout callout5">Add configuration parameters.<i></i></p>
-                <p class="callout callout6">Define persistent mounting points.<i></i></p>
-                <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
-              </div>
-              <div class="brackets">
-                <div class="bracket bracket1"></div>
-                <div class="bracket bracket2"></div>
-                <div class="bracket bracket3"></div>
-                <div class="bracket bracket4"></div>
-                <div class="bracket bracket5"></div>
-                <div class="bracket bracket6"></div>
-                <div class="bracket bracket7"></div>
-              </div>
-            </div>
-            <div class="col-md-7">
-<pre class="prettyprint lang-javascript linenums">
-  // AZK 0.4.0
-
-  systems({
-    'web': {
-      depends: ["database"],
-      image: "dockerfile/nodejs",
-      provision: [
-        "npm install",
-      ],
-      command: "node index.js",
-      workdir: "/azk/<%= manifest.dir %>",
-      mount_folders: {
-        '.': "/azk/<%= manifest.dir %>",
-      },
-      scalable: { default: 3 },
-      http: {
-        hostname: "<%= system.name %>.<%= azk.default_domain %>",
-      },
-      envs: {
-        NODE_ENV: "dev",
-      }
-    },
-    database: {
-      image: "azukiapp/redis",
-      persistent_folders: ["/data"],
-      ports: {
-        data: "6379/tcp"
-      }
-    }
-  });
-</pre>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- Features -->
-      <section class="wrapper bg-white">
-        <a class="anchor" id="feature"></a>
+      <section class="wrapper bg-turquoise colored">
+        <a class="anchor" id="features"></a>
         <div class="container">
           <div class="row">
             <div class="text-center mar-b30 col-sm-12 col-lg-12">
@@ -238,6 +167,120 @@
           </div>
         </div>
       </section>
+      <!-- Azkfile.js -->
+      <section class="wrapper bg-white">
+        <a class="anchor" id="azkfile"></a>
+        <div class="container">
+          <div class="row">
+            <div class="text-center col-sm-12 col-lg-12">
+              <hgroup>
+                <h2>Azkfile.js</h2>
+                <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
+              </hgroup>
+            </div>
+          </div>  
+          <!-- Brackets -->
+          <div class="row">
+            <div class="visible-lg">
+              <div class="col-md-offset-1 col-md-3">
+                <div class="callouts">
+                  <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
+                  <p class="callout callout2">Specify requisites for running your system.<i></i></p>
+                  <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
+                  <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
+                  <p class="callout callout5">Add configuration parameters.<i></i></p>
+                  <p class="callout callout6">Define persistent mounting points.<i></i></p>
+                  <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
+                </div>
+                <div class="brackets">
+                  <div class="bracket bracket1"></div>
+                  <div class="bracket bracket2"></div>
+                  <div class="bracket bracket3"></div>
+                  <div class="bracket bracket4"></div>
+                  <div class="bracket bracket5"></div>
+                  <div class="bracket bracket6"></div>
+                  <div class="bracket bracket7"></div>
+                </div>
+              </div>
+              <div class="col-md-7">
+<pre class="prettyprint lang-javascript linenums">
+  // AZK 0.4.0
+
+  systems({
+    'web': {
+      depends: ["database"],
+      image: "dockerfile/nodejs",
+      provision: [
+        "npm install",
+      ],
+      command: "node index.js",
+      workdir: "/azk/<%= manifest.dir %>",
+      mount_folders: {
+        '.': "/azk/<%= manifest.dir %>",
+      },
+      scalable: { default: 3 },
+      http: {
+        hostname: "<%= system.name %>.<%= azk.default_domain %>",
+      },
+      envs: {
+        NODE_ENV: "dev",
+      }
+    },
+    database: {
+      image: "azukiapp/redis",
+      persistent_folders: ["/data"],
+      ports: {
+        data: "6379/tcp"
+      }
+    }
+  });
+</pre>
+              </div>
+            </div>
+            <div class="visible-xs visible-sm visible-md col-xs-offset-1 col-xs-10">
+<pre class="prettyprint lang-javascript linenums">
+  // AZK 0.4.0
+
+  // Add elements that compose your system and describe depedencies among them.
+  systems({
+    'web': {
+      depends: ["database"],
+      // Specify requisites for running your system.
+      image: "dockerfile/nodejs",
+      provision: [
+        "npm install",
+      ],
+      // Tell how and where we must run your system.
+      command: "node index.js",
+      workdir: "/azk/<%= manifest.dir %>",
+      mount_folders: {
+        '.': "/azk/<%= manifest.dir %>",
+      },
+      // Give your system an URL and set the inital number of its instances.
+      scalable: { default: 3 },
+      http: {
+        hostname: "<%= system.name %>.<%= azk.default_domain %>",
+      },
+      // Add configuration parameters.
+      envs: {
+        NODE_ENV: "dev",
+      }
+    },
+    database: {
+      image: "azukiapp/redis",
+      // Define persistent mounting points.
+      persistent_folders: ["/data"],
+      // Map, name and tipify (udp/tcp) the ports you want to use.
+      ports: {
+        data: "6379/tcp"
+      }
+    }
+  });
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Use Cases -->
       <section class="mini-wrapper bg-turquoise colored">
         <a class="anchor" id="use-case"></a>
@@ -317,187 +360,179 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- Testimonials -->
       <section class="wrapper bg-white">
         <a class="anchor" id="testimonials"></a>
         <div class="container">
           <div class="row">
-            <div class="text-center col-sm-12 col-lg-12">
+            <div class="text-center col-sm-12 col-lg-12 u-margin-bottom">
               <hgroup>
                 <h2>Testimonials</h2>
                 <h3>See what cool people with early access to AZK are saying about it.</h3>
               </hgroup>
             </div>
           </div>
+
+
           <div class="row">
-            <div class="col-md-12">
-              <div id="testimonial-slider-row1" class="carousel slide mar-t30">
-                <ul class="carousel-indicators text-center row">
-                  <li data-target="#testimonial-slider-row1" data-slide-to="0" class="active testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded">
-                      <img class="img-circle" src="images/testimonials/lfcipriani.png">
-                    </div>
-                    <div class="desc">
-                      <p>
-                        <strong>Luis Cipriani</strong><br>
-                        <em>Developer advocate</em><br>
-                        Twitter
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                  <li data-target="#testimonial-slider-row1" data-slide-to="1" class="testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded">
-                      <img class="img-circle" src="images/testimonials/vinibaggio.jpg">
-                    </div>
-                    <div class="desc">
-                      <p>
-                        <strong>Vinícius Baggio</strong><br>
-                        <em>Software Engineer</em><br>
-                        Medium
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                  <li data-target="#testimonial-slider-row1" data-slide-to="2" class="testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded">
-                      <img class="img-circle" src="images/testimonials/fnando.jpg">
-                    </div>
-                    <div class="desc">
-                      <p>
-                        <strong>Nando Vieira</strong><br>
-                        <em>Senior Member of the Technical Staff</em><br>
-                        Heroku
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                  <li data-target="#testimonial-slider-row1" data-slide-to="3"  class="testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded">
-                      <img class="img-circle" src="images/testimonials/heitortsergent.png">
-                    </div>
-                    <div class="desc">
-                      <p>
-                        <strong>Heitor Sergent</strong><br>
-                        <em>Developer Evangelist</em><br>
-                        Sendgrid
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                </ul>
-                <div class="carousel-inner clearfix">
-                    <div class="active item clearfix">
-                      <div class="clearfix row">
-                        <div class="col-md-12">
-                          <blockquote>Parity amongst multiple instances of a project’s development environment across a team with several developers is a fundamental principle in modern web software development. AZK makes that possible in an elegant and easy-to-use way. - <a href="https://twitter.com/lfcipriani" target="_blank">@lfcipriani</a></blockquote>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="clearfix row">
-                        <div class="col-md-12">
-                          <blockquote>Maybe every project in GitHub should have its own Azkfile.js in order to make its code absolutely ready to run instantly.. - <a href="https://twitter.com/vinibaggio/" target="_blank">@vinibaggio</a></blockquote>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="clearfix row">
-                        <div class="col-md-12">
-                          <blockquote>AZK reduces the entry barrier for beginner developers and catalyses the introduction of new professionals to the marketplace. In that sense, what AZK does for development environment configuration looks a lot like what Ruby on Rails did for web development. AZK may turn into a relevant tool for programming education everywhere. - <a href="https://twitter.com/fnando" target="_blanck">@fnando</a></blockquote>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="clearfix row">
-                        <div class="col-md-12">
-                          <blockquote>As a developer evangelist, the thing I like the most about AZK is that it will make my job easier.  With AZK, I can create and distribute configuration recipes (Azkfile.js) for building development environments ready to run example code written for our APIs. That example code can also be used as framework from which developers can expand and start building applications. I guess AZK may become an important API adoption channel in general. - <a href="https://twitter.com/heitortsergent" target="_blank">@heitortsergent</a></blockquote>
-                        </div>
-                      </div>
-                    </div>
+            <div class="col-md-offset-1 col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/lfcipriani.png">
+                  </div>
+                </div>
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">Parity amongst multiple instances of a project’s development environment across a team with several developers is a fundamental principle in modern web software development. AZK makes that possible in an elegant and easy-to-use way.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Luis Cipriani</strong><br>
+                      <em>Developer advocate</em> Twitter<br>
+                      <a href="https://twitter.com/lfcipriani" target="_blank">@lfcipriani</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">Maybe every project in GitHub should have its own Azkfile.js in order to make its code absolutely ready to run instantly.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Vinícius Baggio</strong><br>
+                      <em>Software Engineer</em> Medium<br>
+                      <a href="https://twitter.com/vinibaggio/" target="_blank">@vinibaggio</a>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/vinibaggio.jpg">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <br>
+
           <div class="row">
-            <div class="col-md-12">
-              <div id="testimonial-slider-row2" class="carousel slide mar-t30">
-                <ul class="carousel-indicators text-center row">
-                  <li data-target="#testimonial-slider-row2" data-slide-to="0" class="testimonial-style col-xs-3 active">
-                    <div class="thumbnail bordered full-rounded"><img class="img-circle" src="images/testimonials/dalssoft.jpg"></div>
-                    <div class="desc">
-                      <p>
-                        <strong>David Lojudice</strong><br>
-                        <em>Partner & Tech Lead</em><br>
-                        Vizir Software Studio
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                  <li data-target="#testimonial-slider-row2" data-slide-to="1" class="testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded"><img class="img-circle" src="images/testimonials/darthmv.jpg"></div>
-                    <div class="desc">
-                      <p>
-                        <strong>Marcus Vinícius Ferreira</strong><br>
-                        <em>Systems Operations & Cloud Architecture</em><br>
-                        Nubank
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                  <li data-target="#testimonial-slider-row2" data-slide-to="2" class="testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded"><img class="img-circle" src="images/testimonials/carlosbrando.jpg"></div>
-                    <div class="desc">
-                      <p>
-                        <strong>Carlos Brando</strong><br>
-                        <em>CTO</em><br>
-                        Enjoei
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                  <li data-target="#testimonial-slider-row2" data-slide-to="3" class="testimonial-style col-xs-3">
-                    <div class="thumbnail bordered full-rounded"><img class="img-circle" src="images/testimonials/lsdr.jpg"></div>
-                    <div class="desc">
-                      <p>
-                        <strong>Luiz Rocha</strong><br>
-                        <em>Data Scientist</em><br>
-                        YouFind Solutions
-                      </p>
-                    </div>
-                    <div class="arrow"></div>
-                  </li>
-                </ul>
-                <div class="carousel-inner clearfix">
-                  <div class="active item clearfix">
-                    <div class="clearfix row">
-                      <div class="col-md-12">
-                        <blockquote>AZK is so simple and yet so powerful. It’s like having a whole PaaS in your own machine. As a developer, AZK is the kind of tool I’ve always dreamed of having. - <a href="https://twitter.com/dalssoft" target="_blank">@dalssoft</a></blockquote>
-                      </div>
-                    </div>
+            <div class="col-md-offset-1 col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/fnando.jpg">
                   </div>
-                  <div class="item">
-                    <div class="clearfix row">
-                      <div class="col-md-12">
-                        <blockquote>With AZK I can restart as many instances as I want of my development environments, as many times as I want (with zero effort or latency). Also, I can do that straight from my latest source of Azkfile.js, making sure everything is always up to date. To me, that’s all quite reassuring. - <a href="https://twitter.com/darthmv" target="_blank">@darthmv</a></blockquote>
-                      </div>
-                    </div>
+                </div>
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">AZK reduces the entry barrier for beginner developers and catalyses the introduction of new professionals to the marketplace. In that sense, what AZK does for development environment configuration looks a lot like what Ruby on Rails did for web development. AZK may turn into a relevant tool for programming education everywhere.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Nando Vieira</strong><br>
+                      <em>Senior Member of the Technical Staff</em> Heroku<br>
+                      <a href="https://twitter.com/fnando" target="_blanck">@fnando</a>
+                    </p>
                   </div>
-                  <div class="item">
-                    <div class="clearfix row">
-                      <div class="col-md-12">
-                        <blockquote>Quickly integrating new developers into the team or relocating them to different projects are some of the things AZK allows me to consider as the CTO of a rapidly growing startup. By the way, AZK is open source (and thus 100% free)! - <a href="https://twitter.com/carlosbrando" target="_blank">@carlosbrando</a></blockquote>
-                      </div>
-                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">As a developer evangelist, the thing I like the most about AZK is that it will make my job easier.  With AZK, I can create and distribute configuration recipes (Azkfile.js) for building development environments ready to run example code written for our APIs. That example code can also be used as framework from which developers can expand and start building applications. I guess AZK may become an important API adoption channel in general.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Heitor Sergent</strong><br>
+                      <em>Developer Evangelist</em> Sendgrid<br>
+                      <a href="https://twitter.com/heitortsergent" target="_blank">@heitortsergent</a>
+                    </p>
                   </div>
-                  <div class="item">
-                    <div class="clearfix row">
-                      <div class="col-md-12">
-                        <blockquote>Currently available tools for maintaining development environments are very time and effort consuming. AZK makes everything a snap and hides away the tough parts of this process (while keeping it transparent enough so that we’re always aware and in control of what’s going on underneath). It’s like AZK came from the future. - <a href="https://twitter.com/lsdr">@lsdr</a></blockquote>
-                      </div>
-                    </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/heitortsergent.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-offset-1 col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/dalssoft.jpg">
+                  </div>
+                </div>
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">AZK is so simple and yet so powerful. It’s like having a whole PaaS in your own machine. As a developer, AZK is the kind of tool I’ve always dreamed of having.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>David Lojudice</strong><br>
+                      <em>Partner & Tech Lead</em> - Vizir Software Studio<br>
+                      <a href="https://twitter.com/dalssoft" target="_blank">@dalssoft</a>    
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">With AZK I can restart as many instances as I want of my development environments, as many times as I want (with zero effort or latency). Also, I can do that straight from my latest source of Azkfile.js, making sure everything is always up to date. To me, that’s all quite reassuring.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Marcus Vinícius Ferreira</strong><br>
+                      <em>Systems Operations & Cloud Architecture</em> - Nubank<br>
+                      <a href="https://twitter.com/darthmv" target="_blank">@darthmv</a>    
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/darthmv.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-offset-1 col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/carlosbrando.jpg">
+                  </div>
+                </div>
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">Quickly integrating new developers into the team or relocating them to different projects are some of the things AZK allows me to consider as the CTO of a rapidly growing startup. By the way, AZK is open source (and thus 100% free)!</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Carlos Brando</strong><br>
+                      <em>CTO</em> - Enjoei<br>
+                      <a href="https://twitter.com/carlosbrando" target="_blank">@carlosbrando</a>    
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 u-margin-bottom">
+              <div class="row">
+                <div class="col-xs-9">
+                  <blockquote class="testimonal">Currently available tools for maintaining development environments are very time and effort consuming. AZK makes everything a snap and hides away the tough parts of this process (while keeping it transparent enough so that we’re always aware and in control of what’s going on underneath). It’s like AZK came from the future.</blockquote>
+                  <div class="desc">
+                    <p>
+                      <strong>Luiz Rocha</strong><br>
+                      <em>Data Scientist</em> - YouFind Solutions<br>
+                      <a href="https://twitter.com/lsdr">@lsdr</a>    
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="thumbnail bordered full-rounded">
+                    <img class="img-circle" src="images/testimonials/lsdr.jpg">
                   </div>
                 </div>
               </div>
@@ -654,14 +689,14 @@
       <footer>
         <div class="container">
           <ul class="text-center footer-nav list-unstyled list-inline u-margin-bottom">
-            <li><a href="#row1">Home</a></li>
-            <li><a href="#row2">Azkfile.js</a></li>
-            <li><a href="#row3">Features</a></li>
-            <li><a href="#row4">Use Cases</a></li>
-            <!--<li><a href="#row5">Sponsors</a></li>-->
-            <li><a href="#row6">Testimonials</a></li>
-            <!--<li><a href="#row7">FAQ</a></li>-->
-            <li><a href="#row8">Newsletter</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#azkfile">Azkfile.js</a></li>
+            <li><a href="#use-case">Use Cases</a></li>
+            <!--<li><a href="sponsors">Sponsors</a></li>-->
+            <li><a href="#testimonials">Testimonials</a></li>
+            <!--<li><a href="#faq">FAQ</a></li>-->
+            <li><a href="#newsletter">Newsletter</a></li>
           </ul>
           <div class="row">
             <div class="pull-left col-sm-6">
