@@ -262,7 +262,7 @@ p, ul { color: rgba(34,42,49,.7); }
 #forkme img {
 	width: auto;
 	z-index: 100000;
-	position: fix;
+	position: fixed;
 	top: 0;
 	right: 0;
 	border: 0;
