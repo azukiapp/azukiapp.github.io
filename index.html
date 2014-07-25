@@ -80,79 +80,8 @@
           </div>
         </div>
       </section>
-      <!-- Azkfile.js -->
-      <section class="wrapper bg-turquoise colored">
-        <a class="anchor" id="azkfile"></a>
-        <div class="container">
-          <div class="row">
-            <div class="text-center col-sm-12 col-lg-12">
-              <hgroup>
-                <h2>Azkfile.js</h2>
-                <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
-              </hgroup>
-            </div>
-          </div>
-          <!-- Brackets -->
-          <div class="row">
-            <div class="col-md-offset-1 col-md-3">
-              <div class="callouts">
-                <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
-                <p class="callout callout2">Specify requisites for running your system.<i></i></p>
-                <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
-                <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
-                <p class="callout callout5">Add configuration parameters.<i></i></p>
-                <p class="callout callout6">Define persistent mounting points.<i></i></p>
-                <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
-              </div>
-              <div class="brackets">
-                <div class="bracket bracket1"></div>
-                <div class="bracket bracket2"></div>
-                <div class="bracket bracket3"></div>
-                <div class="bracket bracket4"></div>
-                <div class="bracket bracket5"></div>
-                <div class="bracket bracket6"></div>
-                <div class="bracket bracket7"></div>
-              </div>
-            </div>
-            <div class="col-md-7">
-<pre class="prettyprint lang-javascript linenums">
-  // AZK 0.4.0
-
-  systems({
-    'web': {
-      depends: ["database"],
-      image: "dockerfile/nodejs",
-      provision: [
-        "npm install",
-      ],
-      command: "node index.js",
-      workdir: "/azk/<%= manifest.dir %>",
-      mount_folders: {
-        '.': "/azk/<%= manifest.dir %>",
-      },
-      scalable: { default: 3 },
-      http: {
-        hostname: "<%= system.name %>.<%= azk.default_domain %>",
-      },
-      envs: {
-        NODE_ENV: "dev",
-      }
-    },
-    database: {
-      image: "azukiapp/redis",
-      persistent_folders: ["/data"],
-      ports: {
-        data: "6379/tcp"
-      }
-    }
-  });
-</pre>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- Features -->
-      <section class="wrapper bg-white">
+      <section class="wrapper bg-turquoise colored">
         <a class="anchor" id="features"></a>
         <div class="container">
           <div class="row">
@@ -234,6 +163,77 @@
                   <p>Aren’t you sure if all the programmers in your team are using the updated version of the development environment? Just give them the latest Azkfile.js. With AZK, you can kill and restart entire development environments in seconds (literally). </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Azkfile.js -->
+      <section class="wrapper bg-white">
+        <a class="anchor" id="azkfile"></a>
+        <div class="container">
+          <div class="row">
+            <div class="text-center col-sm-12 col-lg-12">
+              <hgroup>
+                <h2>Azkfile.js</h2>
+                <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
+              </hgroup>
+            </div>
+          </div>
+          <!-- Brackets -->
+          <div class="row">
+            <div class="col-md-offset-1 col-md-3">
+              <div class="callouts">
+                <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
+                <p class="callout callout2">Specify requisites for running your system.<i></i></p>
+                <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
+                <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
+                <p class="callout callout5">Add configuration parameters.<i></i></p>
+                <p class="callout callout6">Define persistent mounting points.<i></i></p>
+                <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
+              </div>
+              <div class="brackets">
+                <div class="bracket bracket1"></div>
+                <div class="bracket bracket2"></div>
+                <div class="bracket bracket3"></div>
+                <div class="bracket bracket4"></div>
+                <div class="bracket bracket5"></div>
+                <div class="bracket bracket6"></div>
+                <div class="bracket bracket7"></div>
+              </div>
+            </div>
+            <div class="col-md-7">
+<pre class="prettyprint lang-javascript linenums">
+  // AZK 0.4.0
+
+  systems({
+    'web': {
+      depends: ["database"],
+      image: "dockerfile/nodejs",
+      provision: [
+        "npm install",
+      ],
+      command: "node index.js",
+      workdir: "/azk/<%= manifest.dir %>",
+      mount_folders: {
+        '.': "/azk/<%= manifest.dir %>",
+      },
+      scalable: { default: 3 },
+      http: {
+        hostname: "<%= system.name %>.<%= azk.default_domain %>",
+      },
+      envs: {
+        NODE_ENV: "dev",
+      }
+    },
+    database: {
+      image: "azukiapp/redis",
+      persistent_folders: ["/data"],
+      ports: {
+        data: "6379/tcp"
+      }
+    }
+  });
+</pre>
             </div>
           </div>
         </div>
