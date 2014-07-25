@@ -74,8 +74,7 @@
 	}
 	.home {
 		background-size: 770px auto;
-		min-height: 580px;
-		padding-top: 0;
+		padding-top: 95px;
 	}
 	#back {
 		left: -510px;
@@ -100,7 +99,7 @@
 	.home {
 		padding-top: 0;
 		background-size: 590px auto;
-		min-height: 560px;
+		padding-top: 95px;
 	}
 	.navbar-fixed-top, 
 	.navbar-fixed-bottom, 
@@ -189,11 +188,12 @@
 	}
 	.home {
 		background-size: 310px auto;
-		min-height: 500px;
+		min-height: 585px;
 	}
 	.wrapper {
 		padding-left: 10px;
 		padding-right: 10px;
+		padding-top: 95px;
 		text-align: center;
 	}
 	.main-title {
