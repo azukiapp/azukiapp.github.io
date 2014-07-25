@@ -59,6 +59,15 @@ module.exports = function( grunt ) {
       ],
     },
 
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          src: ['images/**/*.{png,jpg,gif}'],
+        }]
+      }
+    },
+
     browserSync: {
       files: {
         src : [
@@ -85,9 +94,11 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-aws-s3');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
 
   grunt.registerTask('default', ["browserSync", "watch"]);
+  grunt.registerTask('assets',  ["imagemin"]);
   grunt.registerTask('compile', ["clean:build", "newer:compress:main"]);
   grunt.registerTask('deploy' , ["newer:compress:main", "aws_s3:deploy"]);
 };
