@@ -18,7 +18,6 @@
 		padding-right: 10px;
 	}
 	.navbar .nav > li > a {
-		padding: 14px 10px;
 		border-top: 1px solid #f6f6f6;
 		font-size: 14px;
 	}
@@ -281,12 +280,8 @@
 
 @media (min-width: 768px) {
 	.content-brand {
-		width: 45px;
-		height: 45px;
-	}
-	.navbar .nav > li > a {
-		padding-top: 20px;
-	}
+		width: 60px;
+	}	
 }
 
 @media (min-width: 992px) {
@@ -294,8 +289,11 @@
 		width: 80px;
 		height: 90px;
 	}
-	.navbar .nav > li > a {
-		padding-top: 35px;
-		padding-bottom: 35px;
+}
+
+
+@media (min-width: 992px) {
+	.nav {
+		margin-top: 18px;
 	}
 }

@@ -218,24 +218,31 @@ p, ul { color: rgba(34,42,49,.7); }
 /* ======================================================================== */
 /* ! Nav
 /* ======================================================================== */
+
+.page-aqua .navbar .nav > li > a:hover {
+	background: none;
+	color: #30B4CB;
+}
+
 .content-brand {
 	display: block;
 	margin-left: 10px;
 	width: 40px;
-	height: 54px;
 }
 .content-brand__image {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 100%;
 }
+
 .nav {
 	font: normal 16px/16px "ProximaNova-Semibold", Arial, Helvetica, Geneva, sans-serif;
 	text-shadow: none;	
+	margin-top: 8px;
 }
 
 .navbar .container {
-	padding: 10px 60px 10px 60px;
+	padding: 10px 60px auto 60px;;
 }
 
 .navbar-inner {
@@ -244,8 +251,6 @@ p, ul { color: rgba(34,42,49,.7); }
 }
 .navbar .nav > li > a {
 	color: #222a31;
-	padding: 30px 20px;
-	padding-top: 40px 20px;
 }
 .navbar .nav > li > a:focus, 
 .navbar .nav > li > a:hover {
@@ -589,6 +594,13 @@ footer a {
 	height: 1920px;
 	z-index: 1;
 	background: #212930 url('../images/bg_code.png') no-repeat center 30px;
+	top: 0;
+	right: -55%;
+}
+@media (min-width: 980px) {
+	#back {
+		right: 0;
+	}
 }
 
 /* ======================================================================== */
