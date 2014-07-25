@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen">
     <!-- Landlr Style -->
     <link href="css/colors.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/prettify-tomorrow-night.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!-- Favicon and touch icons  -->
     <link href="ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
     <link href="ico/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
@@ -178,30 +178,31 @@
                 <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
               </hgroup>
             </div>
-          </div>
+          </div>  
           <!-- Brackets -->
           <div class="row">
-            <div class="col-md-offset-1 col-md-3">
-              <div class="callouts">
-                <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
-                <p class="callout callout2">Specify requisites for running your system.<i></i></p>
-                <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
-                <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
-                <p class="callout callout5">Add configuration parameters.<i></i></p>
-                <p class="callout callout6">Define persistent mounting points.<i></i></p>
-                <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
+            <div class="visible-lg">
+              <div class="col-md-offset-1 col-md-3">
+                <div class="callouts">
+                  <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
+                  <p class="callout callout2">Specify requisites for running your system.<i></i></p>
+                  <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
+                  <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
+                  <p class="callout callout5">Add configuration parameters.<i></i></p>
+                  <p class="callout callout6">Define persistent mounting points.<i></i></p>
+                  <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
+                </div>
+                <div class="brackets">
+                  <div class="bracket bracket1"></div>
+                  <div class="bracket bracket2"></div>
+                  <div class="bracket bracket3"></div>
+                  <div class="bracket bracket4"></div>
+                  <div class="bracket bracket5"></div>
+                  <div class="bracket bracket6"></div>
+                  <div class="bracket bracket7"></div>
+                </div>
               </div>
-              <div class="brackets">
-                <div class="bracket bracket1"></div>
-                <div class="bracket bracket2"></div>
-                <div class="bracket bracket3"></div>
-                <div class="bracket bracket4"></div>
-                <div class="bracket bracket5"></div>
-                <div class="bracket bracket6"></div>
-                <div class="bracket bracket7"></div>
-              </div>
-            </div>
-            <div class="col-md-7">
+              <div class="col-md-7">
 <pre class="prettyprint lang-javascript linenums">
   // AZK 0.4.0
 
@@ -228,6 +229,48 @@
     database: {
       image: "azukiapp/redis",
       persistent_folders: ["/data"],
+      ports: {
+        data: "6379/tcp"
+      }
+    }
+  });
+</pre>
+              </div>
+            </div>
+            <div class="visible-xs visible-sm visible-md col-xs-offset-1 col-xs-10">
+<pre class="prettyprint lang-javascript linenums">
+  // AZK 0.4.0
+
+  // Add elements that compose your system and describe depedencies among them.
+  systems({
+    'web': {
+      depends: ["database"],
+      // Specify requisites for running your system.
+      image: "dockerfile/nodejs",
+      provision: [
+        "npm install",
+      ],
+      // Tell how and where we must run your system.
+      command: "node index.js",
+      workdir: "/azk/<%= manifest.dir %>",
+      mount_folders: {
+        '.': "/azk/<%= manifest.dir %>",
+      },
+      // Give your system an URL and set the inital number of its instances.
+      scalable: { default: 3 },
+      http: {
+        hostname: "<%= system.name %>.<%= azk.default_domain %>",
+      },
+      // Add configuration parameters.
+      envs: {
+        NODE_ENV: "dev",
+      }
+    },
+    database: {
+      image: "azukiapp/redis",
+      // Define persistent mounting points.
+      persistent_folders: ["/data"],
+      // Map, name and tipify (udp/tcp) the ports you want to use.
       ports: {
         data: "6379/tcp"
       }
