@@ -657,6 +657,9 @@ input[type="color"],
 	color: #FFF;
 }
 
+/* ======================================================================== */
+/* ! PRETTYPRINT
+/* ======================================================================== */
 .prettyprint ol.linenums > li { list-style-type: decimal; }
 li.L1, li.L3, li.L5, li.L7, li.L9 {background-color: transparent;}
 .prettyprint { font-size: 12px; color: #999;}
@@ -668,22 +671,9 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 }
 
 
-
 /* ======================================================================== */
-/* ! HELPERS
+/* ! BRACKETS
 /* ======================================================================== */
-.img-responsive {
-	width: 100%;
-}
-
-.is-font-small {
-	font-size: 24px;
-}
-
-.u-margin-bottom {
-	margin-bottom: 30px;
-}
-
 @media (max-width: 970px) {
     .callouts, .brackets {
         display:none
@@ -695,7 +685,6 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
         display:none
     }
 }
-
 .callouts, .brackets {
 	margin-top: 65px;
 }
@@ -755,4 +744,19 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 
 .bracket7, .callout7 {
 	height: 40px;
+}
+
+/* ======================================================================== */
+/* ! HELPERS
+/* ======================================================================== */
+.img-responsive {
+	width: 100%;
+}
+
+.is-font-small {
+	font-size: 24px;
+}
+
+.u-margin-bottom {
+	margin-bottom: 30px;
 }
