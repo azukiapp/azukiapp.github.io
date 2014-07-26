@@ -297,6 +297,21 @@
 	.nav {
 		margin-top: 18px;
 	}
+
+	.testimonal__first {
+		height: 150px;
+	}
+
+	.testimonal__second {
+		height: 255px;
+	}
+
+	.testimonal__third {
+		height: 175px;
+	}
+	.testimonal_fourth {
+		height: 195px;
+	}
 }
 
 

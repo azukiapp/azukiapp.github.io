@@ -792,6 +792,21 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 	color: #FFF;
 	text-align: left;
 }
+
+.testimonal_icon {
+	position: absolute;
+	color: #2FB4CB;
+	font-size: 50px;
+}
+
+.testimonal_icon-left {
+	left: 0;
+}
+
+.testimonal_icon-right {
+	right: 0;
+}
+
 .desc {
 	text-align: left;
 }
