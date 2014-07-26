@@ -275,7 +275,12 @@
 	.anchor {
 		top: 0;
 	}
-	
+}
+
+@media (min-width: 480px) {
+	.margin-sm-right {
+		margin-right: 15px;
+	}
 }
 
 @media (min-width: 768px) {
