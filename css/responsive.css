@@ -325,3 +325,8 @@
 		padding-right: 0;
 	}	
 }
+
+.use-case-img {
+	width: 100%;
+	max-width: 180px;
+}
