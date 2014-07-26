@@ -807,8 +807,8 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 .testimonal:before {
   color: #ccc;
   content: '“';
-  font-size: 4em;
-  line-height: 0.1em;
+  font-size: 3.5em;
+  line-height: 0.01em;
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
