@@ -36,7 +36,9 @@
     <!-- Navigation -->
     <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <a href="https://github.com/you" class="visible-md visible-lg"><img style="position: absolute; top: 0; right: 0; border: 0;height: 160px;width: 160px;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+        <a href="https://github.com/you" class="visible-md visible-lg">
+          <img class="fork-me" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+        </a>
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,9 +57,7 @@
               <li><a href="#features">Features</a></li>
               <li><a href="#azkfile">Azkfile.js</a></li>
               <li><a href="#use-case">Use Cases</a></li>
-              <!-- <li><a href="#sponsors">Sponsors</a></li> -->
               <li><a href="#testimonials">Testimonials</a></li>
-              <!-- <li><a href="#faq">FAQ</a></li> -->
               <li><a href="#newsletter">Newsletter</a></li>
             </ul>
           </div>
@@ -320,47 +320,6 @@
           </div>
         </div>
       </section>
-      <!-- Sponsors 
-      <section class="mini-wrapper bg-white">
-        <a class="anchor" id="sponsors"></a>
-        <div class="container">
-          <div class="row">
-            <div class="text-center col-sm-12 col-lg-12">
-              <hgroup>
-                <h2>Sponsors</h2>
-              </hgroup>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3 u-margin-bottom">
-              <img src="images/sponsors/full360.png" alt="logo do Full 360" class="img-responsive">
-            </div>
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3 u-margin-bottom">
-              <img src="images/sponsors/dyndrop.png" alt="logo do dyndrop" class="img-responsive">
-            </div>
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3 u-margin-bottom">
-              <img src="images/sponsors/labdivision.png" alt="logo do Lab Division" class="img-responsive">
-            </div>
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3 u-margin-bottom">
-              <img src="images/sponsors/locaweb.png" alt="logo do locaweb" class="img-responsive">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-0 col-sm-3 col-md-offset-2 col-md-2 u-margin-bottom">
-              <img src="images/sponsors/labdivision.png" alt="logo do Lab Division" class="img-responsive">
-            </div>
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-0 col-sm-3 col-md-2 u-margin-bottom">
-              <img src="images/sponsors/locaweb.png" alt="logo do locaweb" class="img-responsive">
-            </div>
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-0 col-sm-3 col-md-2 u-margin-bottom">
-              <img src="images/sponsors/full360.png" alt="logo do Full 360" class="img-responsive">
-            </div>
-            <div class="col-xs-offset-2 col-xs-7 col-sm-offset-0 col-sm-3 col-md-2 u-margin-bottom">
-              <img src="images/sponsors/dyndrop.png" alt="logo do dyndrop" class="img-responsive">
-            </div>
-          </div>
-        </div>
-      </section> -->
       <!-- Testimonials -->
       <section class="wrapper bg-white">
         <a class="anchor" id="testimonials"></a>
@@ -540,97 +499,6 @@
           </div>
         </div>
       </section>
-      <!-- FAQ's 
-      <section class="mini-wrapper bg-white">
-        <a class="anchor" id="faq"></a>
-        <div class="container">
-          <div class="row">
-            <div class="text-center col-sm-12 col-lg-12">
-              <h2>Frequently Asked Questions</h2>
-              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id lobortis diam, vel lobortis ipsum.<br>Nulla auctor, lectus a consectetur ornare, tortor dui pellentesque orci.</h3>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <ul>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">How do I setup Amazon Payments?</summary>
-                      <div class="details-list__text">
-                        <p>You'll need to <a href="https://payments.amazon.com/sdui/sdui/accountstatus">create an Amazon Seller Central account</a>. Afterwards, get your access key and secret key from the "Integration" tab on your AWS account. <a href="https://payments.amazon.com/sdui/sdui/helpTab/Checkout-by-Amazon/Advanced-Integration-Help/Using-Your-Access-Key">Click here for more info</a>.</p>
-                        <p>Once you have your access key and secret key, head over to <code>config/settings.yml</code>. Change <code>amazon_access_key</code> and <code>amazon_secret_key</code> appropriately.</p>
-                      </div>
-                    </details>
-                  </li>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">Can I use another payments provider?</summary>
-                      <div class="details-list__text">
-                        <p>Of course. We haven't built in support for other providers, but we recommend that you take a look at <a href="https://stripe.com">Stripe</a> or <a href="https://wepay.com">WePay</a>.</p>
-                      </div>
-                    </details>
-                  </li>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">How do I edit the FAQ?</summary>
-                      <div class="details-list__text">
-                        <p>The faq is a partial located in <code>app/views/preorder/homepage/_faq.html.erb</code> The <code>summary</code> tag is the title, the <code>p</code> is the body. Make sure to add an <code>li</code> tag for each FAQ entry.</p>
-                      </div>
-                    </details>
-                  </li>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">How do I change around the images, product name, etc?</summary>
-                      <div class="details-list__text">
-                        <p>The best way is in <code>config/settings.yml</code>. It has variables for several different parts, the video, the product name, the call to action button ("Fork Now"), and several more.</p>
-                      </div>
-                    </details>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-sm-6">
-                <ul class="col2">
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">How do I change the CSS?</summary>
-                      <div class="details-list__text">
-                        <p>Head over to <code>app/assets/stylesheets/variables.css.scss</code>. It makes it easy to change around the elements used throughout the HTML.</p>
-                        <p>Alternatively, you can dive right into the CSS, have a look at <code>app/assets/stylesheets/main.css.scss</code>.</p>
-                      </div>
-                    </details>
-                  </li>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">Why did you release this?</summary>
-                      <div class="details-list__text">
-                        <p>Hardware startups are less welcome on Kickstarter than they were 6 months ago. We needed to roll our own kickstarter, so we did. Other hardware startups probably will too, so we made it easier for them by open sourcing our way of doing it.</p>
-                      </div>
-                    </details>
-                  </li>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">What software stack does this use?</summary>
-                      <div class="details-list__text">
-                        <p>It's a Ruby on Rails app that makes heavy use of SCSS, Kickstarter's wonderful <code>amazon_flex_pay</code> gem, and a hint of CoffeeScript.</p>
-                      </div>
-                    </details>
-                  </li>
-                  <li class="details-list">
-                    <details>
-                      <summary class="details-list__sumary">How do I deploy it?</summary>
-                      <div class="details-list__text">
-                        <p>We recommend using Heroku. We include a Procfile for you, so all you need to do is:</p>
-                        <p>Install the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a></p>
-                        <p>Run <code>heroku create</code> in Selfstarter's folder</p>
-                        <p>Run <code>git push heroku master</code> in Selfstarter's folder</p>
-                      </div>
-                    </details>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </div>
-      </section>-->
-
       <!-- Newsletter -->
       <section class="mini-wrapper bg-turquoise colored">
         <a class="anchor" id="newsletter"></a>
@@ -693,9 +561,7 @@
             <li><a href="#features">Features</a></li>
             <li><a href="#azkfile">Azkfile.js</a></li>
             <li><a href="#use-case">Use Cases</a></li>
-            <!--<li><a href="sponsors">Sponsors</a></li>-->
             <li><a href="#testimonials">Testimonials</a></li>
-            <!--<li><a href="#faq">FAQ</a></li>-->
             <li><a href="#newsletter">Newsletter</a></li>
           </ul>
           <div class="row">

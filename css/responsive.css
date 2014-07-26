@@ -289,11 +289,19 @@
 		width: 80px;
 		height: 90px;
 	}
-}
 
+	.navbar-default .navbar-collapse {
+		padding-right: 60px;
+	}
 
-@media (min-width: 992px) {
 	.nav {
 		margin-top: 18px;
 	}
+}
+
+
+@media (min-width: 1322px) {
+	.navbar-default .navbar-collapse {
+		padding-right: 0;
+	}	
 }
