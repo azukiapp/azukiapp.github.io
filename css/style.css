@@ -221,11 +221,19 @@ p, ul { color: rgba(34,42,49,.7); }
 /* ! Nav
 /* ======================================================================== */
 
+.page-aqua .navbar .nav > li > a {
+	color: #999999;
+}
+
 .page-aqua .navbar .nav > li > a:hover,
 .page-aqua .navbar .nav > .active > a,
 .page-aqua .navbar .nav > .active:hover > a {
 	background: none;
 	color: #30B4CB;
+}
+
+.page-aqua .navbar .nav > li > a:hover {
+	color: #666666;
 }
 
 .content-brand {
@@ -763,6 +771,16 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 	height: 40px;
 }
 
+/* FORK ME */
+.fork-me {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	height: 140px;
+	width: 140px;
+}
+
 /* ======================================================================== */
 /* ! TESTIMONAL
 /* ======================================================================== */
@@ -777,6 +795,7 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 .desc {
 	text-align: left;
 }
+
 /* ======================================================================== */
 /* ! HELPERS
 /* ======================================================================== */
