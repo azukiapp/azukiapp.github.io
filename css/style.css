@@ -818,10 +818,14 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 	width: 100%;
 }
 
-.is-font-small {
+.font-small {
 	font-size: 24px;
 }
 
-.u-margin-bottom {
+.margin-bottom {
 	margin-bottom: 30px;
+}
+
+.margin-bottom-large {
+	margin-bottom: 60px;
 }
