@@ -175,7 +175,7 @@ strong {
 	min-height: 730px;
 	box-sizing: border-box;
 	position: relative;
-	padding: 60px 0;
+	padding: 28px 0;
 }
 .mini-wrapper {
 	min-height: 310px;
@@ -233,7 +233,7 @@ p, ul { color: rgba(34,42,49,.7); }
 }
 
 .page-aqua .navbar .nav > li > a:hover {
-	color: #666666;
+	color: #000000;
 }
 
 .content-brand {
@@ -297,6 +297,15 @@ p, ul { color: rgba(34,42,49,.7); }
 .main-title h3 {
 	font-size: 30px;
 }
+
+/* ======================================================================== */
+/* ! Features
+/* ======================================================================== */
+
+.feature-item a {
+	font-weight: bold;
+}
+
 /* ======================================================================== */
 /* ! Pricing table
 /* ======================================================================== */
@@ -435,6 +444,7 @@ p, ul { color: rgba(34,42,49,.7); }
 	-moz-box-shadow: none;
 	-ms-box-shadow: none;
 }
+
 .carousel-indicators {
 	position: relative;
 	right: auto;
@@ -598,7 +608,7 @@ footer a {
 	background-image: url('../images/capturetest.gif');
 	background-position: center bottom;
 	background-repeat: no-repeat;
-	min-height: 800px;
+	min-height: 730px;
 }
 
 #back {
@@ -791,12 +801,23 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 	background: #2FB4CB;
 	color: #FFF;
 	text-align: left;
+	font-style: italic;
+}
+
+.testimonal:before {
+  color: #ccc;
+  content: '“';
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
 }
 
 .testimonal_icon {
 	position: absolute;
 	color: #2FB4CB;
 	font-size: 50px;
+	top: 24px;
 }
 
 .testimonal_icon-left {
