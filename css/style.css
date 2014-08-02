@@ -7,9 +7,9 @@
 	font-style: normal;
 	font-family: 'ProximaNova';
 	src: url('../fonts/ProximaNova-Regular.eot');
-	src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('eot'), 
-	     url('../fonts/ProximaNova-Regular.woff') format('woff'), 
-	     url('../fonts/ProximaNova-Regular.ttf') format('truetype'), 
+	src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('eot'),
+	     url('../fonts/ProximaNova-Regular.woff') format('woff'),
+	     url('../fonts/ProximaNova-Regular.ttf') format('truetype'),
 	     url('../fonts/ProximaNova-Regular.svg') format('svg');
 }
 @font-face {
@@ -17,9 +17,9 @@
 	font-style: normal;
 	font-family: 'ProximaNova-Semibold';
 	src: url('../fonts/ProximaNova-Semibold.eot');
-	src: url('../fonts/ProximaNova-Semibold.eot?#iefix') format('eot'), 
-		 url('../fonts/ProximaNova-Semibold.woff') format('woff'), 
-		 url('../fonts/ProximaNova-Semibold.ttf') format('truetype'), 
+	src: url('../fonts/ProximaNova-Semibold.eot?#iefix') format('eot'),
+		 url('../fonts/ProximaNova-Semibold.woff') format('woff'),
+		 url('../fonts/ProximaNova-Semibold.ttf') format('truetype'),
 		 url('../fonts/ProximaNova-Semibold.svg') format('svg');
 }
 @font-face {
@@ -27,9 +27,9 @@
 	font-style: normal;
 	font-family: 'ProximaNova-Bold';
 	src: url('../fonts/ProximaNova-Bold.eot');
-	src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('eot'), 
-		 url('../fonts/ProximaNova-Bold.woff') format('woff'), 
-		 url('../fonts/ProximaNova-Bold.ttf') format('truetype'), 
+	src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('eot'),
+		 url('../fonts/ProximaNova-Bold.woff') format('woff'),
+		 url('../fonts/ProximaNova-Bold.ttf') format('truetype'),
 		 url('../fonts/ProximaNova-Bold.svg') format('svg');
 }
 @font-face {
@@ -76,10 +76,10 @@
 	padding: 15px 50px;
 }
 .btn-tomato,
-.btn-tomato:focus, 
+.btn-tomato:focus,
 .btn-tomato:active,
-.btn-tomato.active, 
-.btn-tomato.disabled, 
+.btn-tomato.active,
+.btn-tomato.disabled,
 .btn-tomato[disabled] {
 	background: #fd6740 none;
 	color: #fff;
@@ -89,10 +89,10 @@
 	background: #ff805f none;
 }
 .btn-turquoise,
-.btn-turquoise:focus, 
+.btn-turquoise:focus,
 .btn-turquoise:active,
-.btn-turquoise.active, 
-.btn-turquoise.disabled, 
+.btn-turquoise.active,
+.btn-turquoise.disabled,
 .btn-turquoise[disabled] {
 	background: #24afaa none;
 	color: #fff;
@@ -101,10 +101,10 @@
 	background: #3EC9C4 none;
 }
 .btn-transparent,
-.btn-transparent:focus, 
+.btn-transparent:focus,
 .btn-transparent:active,
-.btn-transparent.active, 
-.btn-transparent.disabled, 
+.btn-transparent.active,
+.btn-transparent.disabled,
 .btn-transparent[disabled] {
 	background: rgba(255,255,255,.2) none;
 	-webkit-box-shadow: inset 0px 0px 0px 2px #fff;
@@ -249,7 +249,7 @@ p, ul { color: rgba(34,42,49,.7); }
 
 .nav {
 	font: normal 16px/16px "ProximaNova-Semibold", Arial, Helvetica, Geneva, sans-serif;
-	text-shadow: none;	
+	text-shadow: none;
 	margin-top: 8px;
 }
 
@@ -264,11 +264,11 @@ p, ul { color: rgba(34,42,49,.7); }
 .navbar .nav > li > a {
 	color: #222a31;
 }
-.navbar .nav > li > a:focus, 
+.navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
 	text-shadow: none;
 }
-.navbar-fixed-top .navbar-inner, 
+.navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -388,13 +388,13 @@ p, ul { color: rgba(34,42,49,.7); }
 	-moz-border-radius: 0;
 	-ms-border-radius: 0;
 }
-.colored .nav-tabs > .active > a, 
-.colored .nav-tabs > .active > a:hover, 
+.colored .nav-tabs > .active > a,
+.colored .nav-tabs > .active > a:hover,
 .colored .nav-tabs > .active > a:focus {
 	background: rgba(255,255,255,.2);
 	color: #fff;
 }
-.colored .nav-tabs.nav-stacked > li > a:hover, 
+.colored .nav-tabs.nav-stacked > li > a:hover,
 .colored .nav-tabs.nav-stacked > li > a:focus {
 	border: 1px solid #fff;
 	background: rgba(255,255,255,.5);
@@ -405,18 +405,18 @@ p, ul { color: rgba(34,42,49,.7); }
 	-moz-border-radius-topright: 8px;
 	-ms-border-top-right-radius: 8px;
 	border-top-right-radius: 8px;
-	
+
 	-webkit-border-top-left-radius: 8px;
 	-moz-border-radius-topleft: 8px;
 	-ms--moz-border-radius-topleft: 8px;
-	border-top-left-radius: 8px; 
+	border-top-left-radius: 8px;
 }
 .nav-tabs.nav-stacked > li:last-child > a {
 	-webkit-border-bottom-right-radius: 8px;
 	-moz-border-radius-bottomright: 8px;
 	-ms-border-bottom-right-radius: 8px;
 	border-bottom-right-radius: 8px;
-	
+
 	-webkit-border-bottom-left-radius: 8px;
 	-moz-border-radius-bottomleft: 8px;
 	-ms-border-bottom-left-radius: 8px;
@@ -425,8 +425,8 @@ p, ul { color: rgba(34,42,49,.7); }
 .nav-tabs {
 	border: none;
 }
-.tab-pane h4 { 
-	font: 100 24px/30px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; 
+.tab-pane h4 {
+	font: 100 24px/30px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif;
 }
 /* ======================================================================== */
 /* ! Testimonial
@@ -632,25 +632,25 @@ footer a {
 .btn {
 	background-image: none;
 }
-textarea, 
-input[type="text"], 
-input[type="password"], 
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"], 
-input[type="email"], 
-input[type="url"], 
-input[type="search"], 
-input[type="tel"], 
-input[type="color"], 
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
 .uneditable-input,
 .dropdown-menu,
-.navbar .nav > .active > a, 
-.navbar .nav > .active > a:hover, 
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -772,13 +772,19 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 }
 
 .bracket6, .callout6 {
-	margin-top: 80px;
+	margin-top: 70px;
 	height: 20px;
 	max-height: 20px;
 }
 
 .bracket7, .callout7 {
-	height: 40px;
+	height: 50px;
+}
+
+.bracket8, .callout8 {
+	height: 60px;
+	padding-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 /* FORK ME */

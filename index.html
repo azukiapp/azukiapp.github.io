@@ -169,6 +169,7 @@
       </section>
       <!-- Azkfile.js -->
       <section class="wrapper bg-white">
+        <a class="anchor" id="azkfile/"></a>
         <a class="anchor" id="azkfile"></a>
         <div class="container">
           <div class="row">
@@ -178,7 +179,7 @@
                 <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
               </hgroup>
             </div>
-          </div>  
+          </div>
           <!-- Brackets -->
           <div class="row">
             <div class="visible-lg">
@@ -191,6 +192,7 @@
                   <p class="callout callout5">Add configuration parameters.<i></i></p>
                   <p class="callout callout6">Define persistent mounting points.<i></i></p>
                   <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
+                  <p class="callout callout8">Export variables to child systems.<i></i></p>
                 </div>
                 <div class="brackets">
                   <div class="bracket bracket1"></div>
@@ -200,6 +202,7 @@
                   <div class="bracket bracket5"></div>
                   <div class="bracket bracket6"></div>
                   <div class="bracket bracket7"></div>
+                  <div class="bracket bracket8"></div>
                 </div>
               </div>
               <div class="col-md-7">
@@ -214,13 +217,13 @@
         "npm install",
       ],
       command: "node index.js",
-      workdir: "/azk/<%= manifest.dir %>",
+      workdir: "/azk/#{manifest.dir}",
       mount_folders: {
-        '.': "/azk/<%= manifest.dir %>",
+        '.': "/azk/#{manifest.dir}",
       },
       scalable: { default: 3 },
       http: {
-        hostname: "<%= system.name %>.<%= azk.default_domain %>",
+        hostname: "#{system.name}.#{azk.default_domain}",
       },
       envs: {
         NODE_ENV: "dev",
@@ -231,7 +234,10 @@
       persistent_folders: ["/data"],
       ports: {
         data: "6379/tcp"
-      }
+      },
+      export_envs: {
+        REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
+      },
     }
   });
 </pre>
@@ -252,14 +258,14 @@
       ],
       // Tell how and where we must run your system.
       command: "node index.js",
-      workdir: "/azk/<%= manifest.dir %>",
+      workdir: "/azk/#{manifest.dir}",
       mount_folders: {
-        '.': "/azk/<%= manifest.dir %>",
+        '.': "/azk/#{manifest.dir}",
       },
       // Give your system an URL and set the inital number of its instances.
       scalable: { default: 3 },
       http: {
-        hostname: "<%= system.name %>.<%= azk.default_domain %>",
+        hostname: "#{system.name}.#{azk.default_domain}",
       },
       // Add configuration parameters.
       envs: {
@@ -274,6 +280,10 @@
       ports: {
         data: "6379/tcp"
       }
+      // Export variables to child systems
+      export_envs: {
+        REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
+      },
     }
   });
 </pre>
