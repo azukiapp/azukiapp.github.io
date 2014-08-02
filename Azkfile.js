@@ -13,13 +13,13 @@ systems({
     provision: [
       "npm install",
     ],
-    workdir: "/azk/<%= manifest.dir %>",
+    workdir: "/azk/#{manifest.dir}",
     // Mounts folders to assigned paths
     mount_folders: {
-      ".": "/azk/<%= manifest.dir %>",
+      ".": "/azk/#{manifest.dir}",
     },
     envs: {
-      PATH: "/azk/<%= manifest.dir %>/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      PATH: "/azk/#{manifest.dir}/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     }
   },
 });
