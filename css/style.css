@@ -709,19 +709,13 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 /* ======================================================================== */
 /* ! BRACKETS
 /* ======================================================================== */
-@media (max-width: 970px) {
-    .callouts, .brackets {
-        display:none
-    }
-}
-
 @media (max-width: 768px) {
     .callouts, .brackets {
         display:none
     }
 }
 .callouts, .brackets {
-	margin-top: 65px;
+	margin-top: 62px;
 }
 
 .callouts {
@@ -752,17 +746,17 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 }
 
 .bracket2, .callout2 {
-	height: 80px;
+	height: 67px;
 	padding-top: 20px;
 }
 
 .bracket3, .callout3 {
-	height: 100px;
+	height: 89px;
 	padding-top: 40px;
 }
 
 .bracket4, .callout4 {
-	height: 80px;
+	height: 71px;
 	padding-top: 20px;
 }
 
@@ -772,19 +766,18 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 }
 
 .bracket6, .callout6 {
-	margin-top: 70px;
+	margin-top: 65px;
 	height: 20px;
 	max-height: 20px;
 }
 
 .bracket7, .callout7 {
-	height: 50px;
+	height: 42px;
 }
 
 .bracket8, .callout8 {
-	height: 60px;
+	height: 54px;
 	padding-top: 20px;
-	/*margin-top: 20px;*/
 }
 
 /* FORK ME */
