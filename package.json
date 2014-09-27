@@ -16,5 +16,8 @@
     "grunt-contrib-sass": "~0.7.3",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-newer": "^0.7.0"
+  },
+  "dependencies": {
+    "express": "^4.9.5"
   }
 }
