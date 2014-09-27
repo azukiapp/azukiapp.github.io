@@ -13,10 +13,14 @@ systems({
     provision: [
       "npm install",
     ],
+    command: "node index.js",
     workdir: "/azk/#{manifest.dir}",
     // Mounts folders to assigned paths
-    mount_folders: {
-      ".": "/azk/#{manifest.dir}",
+    mounts: {
+      "/azk/#{manifest.dir}": ".",
+    },
+    http: {
+      hostname: "azk.io.#{azk.default_domain}",
     },
     envs: {
       PATH: "/azk/#{manifest.dir}/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
