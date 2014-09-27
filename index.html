@@ -218,8 +218,8 @@ systems({
     ],
     command: "node index.js",
     workdir: "/azk/#{manifest.dir}",
-    mount_folders: {
-      '.': "/azk/#{manifest.dir}",
+    mounts: {
+      "/azk/#{manifest.dir}": path('.'),
     },
     scalable: { default: 3 },
     http: {
@@ -231,7 +231,7 @@ systems({
   },
   database: {
     image: "azukiapp/redis",
-    persistent_folders: ["/data"],
+    mounts: { "/data": persistent("data") },
     ports: {
       data: "6379/tcp"
     },
@@ -257,8 +257,8 @@ systems({
     // Tell how and where we must run your system.
     command: "node index.js",
     workdir: "/azk/#{manifest.dir}",
-    mount_folders: {
-      '.': "/azk/#{manifest.dir}",
+    mounts: {
+      "/azk/#{manifest.dir}": path("."),
     },
     // Give your system an URL and set the inital number of its instances.
     scalable: { default: 3 },
@@ -273,7 +273,7 @@ systems({
   database: {
     image: "azukiapp/redis",
     // Define persistent mounting points.
-    persistent_folders: ["/data"],
+    mounts: { "/data": persistent("data") },
     // Map, name and tipify (udp/tcp) the ports you want to use.
     ports: {
       data: "6379/tcp"
@@ -301,8 +301,8 @@ systems({
   // Tell how and where we must run your system.
   command: "node index.js",
   workdir: "/azk/#{manifest.dir}",
-  mount_folders: {
-   '.': "/azk/#{manifest.dir}",
+  mounts: {
+   "/azk/#{manifest.dir}": path("."),
   },
   // Give your system an URL and set the inital
   // number of its instances.
@@ -319,7 +319,7 @@ systems({
  database: {
    image: "azukiapp/redis",
    // Define persistent mounting points.
-   persistent_folders: ["/data"],
+   mounts: { "/data": persistent("data") },
    // Map, name and tipify (udp/tcp) the ports
    // you want to use.
    ports: {
