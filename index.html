@@ -207,7 +207,7 @@
                 </div>
               </div>
               <div class="col-md-7">
-                <pre class="prettyprint line-numbers"><code class="language-azkfile">// AZK 0.4.0
+                <pre class="prettyprint line-numbers"><code class="language-azkfile">// AZK 0.6.0
 
 systems({
   'web': {
@@ -223,17 +223,17 @@ systems({
     },
     scalable: { default: 3 },
     http: {
-      hostname: "#{system.name}.#{azk.default_domain}",
+      domains: [ "#{system.name}.#{azk.default_domain}" ],
     },
     envs: {
       NODE_ENV: "dev",
-    }
+    },
   },
   database: {
     image: "azukiapp/redis",
     mounts: { "/data": persistent("data") },
     ports: {
-      data: "6379/tcp"
+      data: "6379/tcp",
     },
     export_envs: {
       REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
@@ -243,7 +243,7 @@ systems({
               </div>
             </div>
             <div class="visible-sm visible-md col-xs-offset-1 col-xs-10">
-              <pre class="prettyprint"><code class="language-azkfile">// AZK 0.4.0
+              <pre class="prettyprint"><code class="language-azkfile">// AZK 0.6.0
 
 // Add elements that compose your system and describe depedencies among them.
 systems({
@@ -263,12 +263,12 @@ systems({
     // Give your system an URL and set the inital number of its instances.
     scalable: { default: 3 },
     http: {
-      hostname: "#{system.name}.#{azk.default_domain}",
+      domains: [ "#{system.name}.#{azk.default_domain}" ],
     },
     // Add configuration parameters.
     envs: {
       NODE_ENV: "dev",
-    }
+    },
   },
   database: {
     image: "azukiapp/redis",
@@ -276,7 +276,7 @@ systems({
     mounts: { "/data": persistent("data") },
     // Map, name and tipify (udp/tcp) the ports you want to use.
     ports: {
-      data: "6379/tcp"
+      data: "6379/tcp",
     }
     // Export variables to child systems
     export_envs: {
@@ -286,7 +286,7 @@ systems({
 });</code></pre>
             </div>
             <div class="visible-xs">
-              <pre class="prettyprint"><code class="language-azkfile">// AZK 0.4.0
+              <pre class="prettyprint"><code class="language-azkfile">// AZK 0.6.0
 
 // Add elements that compose your system and
 // describe depedencies among them.
@@ -308,13 +308,13 @@ systems({
   // number of its instances.
   scalable: { default: 3 },
   http: {
-   hostname:
-    "#{system.name}.#{azk.default_domain}",
+   domains:
+    [ "#{system.name}.#{azk.default_domain}" ],
   },
   // Add configuration parameters.
   envs: {
    NODE_ENV: "dev",
-  }
+  },
  },
  database: {
    image: "azukiapp/redis",
@@ -323,7 +323,7 @@ systems({
    // Map, name and tipify (udp/tcp) the ports
    // you want to use.
    ports: {
-    data: "6379/tcp"
+    data: "6379/tcp",
    }
    // Export variables to child systems
    export_envs: {
