@@ -8,19 +8,16 @@ AZK is an open-source tool to help automate and manage the setup of developer en
 
 ### Installation
 
-#### Install Nodejs
-	http://nodejs.org/download
-#### Install Grunt
-	npm install -g grunt-cli
-#### Install dependencies
-	npm install
-
-### Running locally
-#### Command
-	grunt
+#### Install AZK
+	https://github.com/azukiapp/azk#installation
+#### Start azk agent
+	azk agent start
+#### Start azk
+	azk start
+#### Open
+    http://azk-landpage.azk.dev/
 
 ### Deploy
-
 Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` file and run:
 
 ```bash
@@ -35,16 +32,14 @@ AZK é uma ferramenta de código aberto para automação da montagem e da gestã
 
 ### Instalação
 
-#### Instale Nodejs
-	http://nodejs.org/download
-#### Instale Grunt
-	npm install -g grunt-cli
-#### Instale as dependências
-	npm install
-
-### Rodando local
-#### Comando
-	grunt
+#### Instale o azk
+    https://github.com/azukiapp/azk#installation
+#### Inicie o azk agent
+    azk agent start
+#### Inicie o azk
+    azk start
+#### Abra o endereço
+    http://azk-landpage.azk.dev/
 
 ### Deploy
 
