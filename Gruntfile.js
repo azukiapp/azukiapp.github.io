@@ -86,7 +86,41 @@ module.exports = function( grunt ) {
           forms : true
         }
       },
+    },
+
+    uglify: {
+      javascripts: {
+        files: {
+          'js/min/all-uglified.min.js': [
+            'js/jquery.js',
+            'js/jquery.easing.1.3.js',
+            'js/jquery.scrollTo.min.js',
+            'js/jquery.themepunch.revolution.min.js',
+            'js/html5shiv.js',
+            'js/bootstrap.min.js',
+            'js/custom.js',
+          ]
+        }
+      },
+
+      prismJs: {
+        files: {
+          'js/min/prism-uglified.min.js': [
+            'js/prism.js',
+            'js/prism_azkfile.js',
+          ]
+        }
+      }
+    },
+
+    cssmin: {
+      combine: {
+        files: {
+          'css/min/all-uglified.min.css': ['css/*.css']
+        }
+      }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -96,9 +130,13 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   grunt.registerTask('default', ["browserSync", "watch"]);
   grunt.registerTask('assets',  ["imagemin"]);
-  grunt.registerTask('compile', ["clean:build", "newer:compress:main"]);
+  grunt.registerTask('uglifier',["uglify", "cssmin"]);
+  grunt.registerTask('compile', ["uglifier", "clean:build", "newer:compress:main"]);
   grunt.registerTask('deploy' , ["newer:compress:main", "aws_s3:deploy"]);
+  grunt.registerTask('build2' , ['uglify']);
 };
