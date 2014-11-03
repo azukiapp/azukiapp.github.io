@@ -31,7 +31,7 @@ assets:
   # Pathnames where to find assets relative to the root of the site.
   #
   sources:
-    - assets
+    - _assets
   #
   # Sets JS compressor. No compression by default.
   # Possible variants: 'yui', 'uglifier', nil
