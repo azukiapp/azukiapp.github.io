@@ -15,6 +15,10 @@ module.exports = function( grunt ) {
         region              : 'sa-east-1',
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
+        params: {
+          CacheControl: 'max-age=86400000, public',
+          Expires: (new Date(Date.now() + 86400000)) // 2 days
+        },
         bucket              : '<%= aws.bucket %>',
         differential        : true,
         displayChangesOnly  : true,
@@ -30,7 +34,7 @@ module.exports = function( grunt ) {
       main: {
         options: { mode: 'gzip' },
         files: [
-          { expand: true , src: ['index.html'] , dest: './build/' },
+          { expand: false , src: ['index-min.html'] , dest: './build/index.html' },
           { expand: true ,
             src: [
               'assets/**/*',
@@ -116,9 +120,29 @@ module.exports = function( grunt ) {
     cssmin: {
       combine: {
         files: {
-          'css/min/all-uglified.min.css': ['css/*.css']
+          'css/all-uglified.min.css': [
+            'css/bootstrap.css',
+            'css/font-awesome.css',
+            'css/settings.css',
+            'css/colors.css',
+            'css/style.css',
+            'css/prism.css',
+            'css/responsive.css',
+          ]
         }
       }
+    },
+
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'index-min.html': 'index.html',
+        }
+      },
     }
 
   });
@@ -132,11 +156,11 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   grunt.registerTask('default', ["browserSync", "watch"]);
   grunt.registerTask('assets',  ["imagemin"]);
-  grunt.registerTask('uglifier',["uglify", "cssmin"]);
+  grunt.registerTask('uglifier',["uglify", "cssmin", "htmlmin"]);
   grunt.registerTask('compile', ["uglifier", "clean:build", "newer:compress:main"]);
   grunt.registerTask('deploy' , ["newer:compress:main", "aws_s3:deploy"]);
-  grunt.registerTask('build2' , ['uglify']);
 };
