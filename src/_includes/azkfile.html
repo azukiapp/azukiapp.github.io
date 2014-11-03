@@ -1,0 +1,168 @@
+<section class="wrapper bg-white">
+  <a class="anchor" id="azkfile/"></a>
+  <a class="anchor" id="azkfile/Azkfile.js"></a>
+  <a class="anchor" id="azkfile"></a>
+  <div class="container">
+    <div class="row">
+      <div class="text-center col-sm-12 col-lg-12">
+        <hgroup>
+          <h2>Azkfile.js</h2>
+          <h3>Azkfile.js is the file format for configuration recipes that inform AZK what to do. An Azkfile.js is a short and simple file written in its own easy-to-understand DSL.</h3>
+        </hgroup>
+      </div>
+    </div>
+    <!-- Brackets -->
+    <div class="row">
+      <div class="visible-lg">
+        <div class="col-md-offset-1 col-md-3">
+          <div class="callouts">
+            <p class="callout callout1">Add elements that compose your system and describe depedencies among them.<i></i></p>
+            <p class="callout callout2">Specify requisites for running your system.<i></i></p>
+            <p class="callout callout3">Tell how and where we must run your system.<i></i></p>
+            <p class="callout callout4">Give your system an URL and set the inital number of its instances.<i></i></p>
+            <p class="callout callout5">Add configuration parameters.<i></i></p>
+            <p class="callout callout6">Define persistent mounting points.<i></i></p>
+            <p class="callout callout7">Map, name and tipify (udp/tcp) the ports you want to use.<i></i></p>
+            <p class="callout callout8">Export variables to child systems.<i></i></p>
+          </div>
+          <div class="brackets">
+            <div class="bracket bracket1"></div>
+            <div class="bracket bracket2"></div>
+            <div class="bracket bracket3"></div>
+            <div class="bracket bracket4"></div>
+            <div class="bracket bracket5"></div>
+            <div class="bracket bracket6"></div>
+            <div class="bracket bracket7"></div>
+            <div class="bracket bracket8"></div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <pre class="prettyprint line-numbers"><code class="language-azkfile">// AZK 0.6.0
+
+systems({
+'web': {
+depends: ["database"],
+image: "dockerfile/nodejs",
+provision: [
+"npm install",
+],
+command: "node index.js",
+workdir: "/azk/#{manifest.dir}",
+mounts: {
+"/azk/#{manifest.dir}": path('.'),
+},
+scalable: { default: 3 },
+http: {
+domains: [ "#{system.name}.#{azk.default_domain}" ],
+},
+envs: {
+NODE_ENV: "dev",
+},
+},
+database: {
+image: "azukiapp/redis",
+mounts: { "/data": persistent("data") },
+ports: {
+data: "6379/tcp",
+},
+export_envs: {
+REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
+},
+}
+});</code></pre>
+        </div>
+      </div>
+      <div class="visible-sm visible-md col-xs-offset-1 col-xs-10">
+        <pre class="prettyprint"><code class="language-azkfile">// AZK 0.6.0
+
+// Add elements that compose your system and describe depedencies among them.
+systems({
+'web': {
+depends: ["database"],
+// Specify requisites for running your system.
+image: "dockerfile/nodejs",
+provision: [
+"npm install",
+],
+// Tell how and where we must run your system.
+command: "node index.js",
+workdir: "/azk/#{manifest.dir}",
+mounts: {
+"/azk/#{manifest.dir}": path("."),
+},
+// Give your system an URL and set the inital number of its instances.
+scalable: { default: 3 },
+http: {
+domains: [ "#{system.name}.#{azk.default_domain}" ],
+},
+// Add configuration parameters.
+envs: {
+NODE_ENV: "dev",
+},
+},
+database: {
+image: "azukiapp/redis",
+// Define persistent mounting points.
+mounts: { "/data": persistent("data") },
+// Map, name and tipify (udp/tcp) the ports you want to use.
+ports: {
+data: "6379/tcp",
+}
+// Export variables to child systems
+export_envs: {
+REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
+},
+}
+});</code></pre>
+      </div>
+      <div class="visible-xs">
+        <pre class="prettyprint"><code class="language-azkfile">// AZK 0.6.0
+
+// Add elements that compose your system and
+// describe depedencies among them.
+systems({
+'web': {
+depends: ["database"],
+// Specify requisites for running your system.
+image: "dockerfile/nodejs",
+provision: [
+"npm install",
+],
+// Tell how and where we must run your system.
+command: "node index.js",
+workdir: "/azk/#{manifest.dir}",
+mounts: {
+"/azk/#{manifest.dir}": path("."),
+},
+// Give your system an URL and set the inital
+// number of its instances.
+scalable: { default: 3 },
+http: {
+domains:
+[ "#{system.name}.#{azk.default_domain}" ],
+},
+// Add configuration parameters.
+envs: {
+NODE_ENV: "dev",
+},
+},
+database: {
+image: "azukiapp/redis",
+// Define persistent mounting points.
+mounts: { "/data": persistent("data") },
+// Map, name and tipify (udp/tcp) the ports
+// you want to use.
+ports: {
+data: "6379/tcp",
+}
+// Export variables to child systems
+export_envs: {
+REDIS_URL:
+"redis://#{net.host}:#{net.port.data}",
+},
+}
+});</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
