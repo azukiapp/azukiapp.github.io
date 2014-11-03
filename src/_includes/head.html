@@ -5,23 +5,20 @@
   <meta content="Use AZK and get development environments installed and configured automatically on your own machine… and then just code." name="description">
   <meta content="AZK" name="author">
   <!-- JS  -->
-  <!--
-  <script type="text/javascript" src="js/prism.js"></script>
-  <script type="text/javascript" src="js/prism_azkfile.js"></script>
-  -->
-  <script type="text/javascript" src="js/min/prism-uglified.min.js"></script>
-  <link href="css/all-uglified.min.css" rel="stylesheet">
+  {% javascript js/prism %}
+  {% javascript js/prism_azkfile %}
+
   <!-- Bootstrap  -->
-  <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+  {% stylesheet css/bootstrap %}
   <!-- Font Awesome  -->
-  <!-- <link href="css/font-awesome.css" rel="stylesheet"> -->
+  {% stylesheet css/font-awesome %}
   <!-- Revolution Responsive jQuery Slider -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen"> -->
+  {% stylesheet css/settings %}
   <!-- Landlr Style -->
-  <!-- <link href="css/colors.css" rel="stylesheet"> -->
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
-  <!-- <link href="css/prism.css" rel="stylesheet"> -->
-  <!-- <link href="css/responsive.css" rel="stylesheet"> -->
+  {% stylesheet css/colors %}
+  {% stylesheet css/style %}
+  {% stylesheet css/prism %}
+  {% stylesheet css/responsive %}
   <!-- Favicon and touch icons  -->
   <link href="ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
   <link href="ico/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
