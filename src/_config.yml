@@ -1,0 +1,12 @@
+# Site settings
+title: azk
+email: azk@azukiapp.com
+description: "Azk landpage project"
+baseurl: ""
+url: "http://www.azk.io"
+twitter_username: azukiapp
+github_username:  azukiapp
+
+# Build settings
+markdown: kramdown
+permalink: pretty
