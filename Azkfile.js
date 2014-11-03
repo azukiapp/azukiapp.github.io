@@ -12,12 +12,14 @@ systems({
     // Steps to execute before running instances
     provision: [
       "npm install",
+      "bundle install --path /azk/bundler",
     ],
-    command: "jekyll serve -s ./src/ --port=$HTTP_PORT --watch --force_polling",
+    command: "bundle exec jekyll serve -s ./src/ --port=$HTTP_PORT --watch --force_polling",
     workdir: "/azk/#{manifest.dir}",
     // Mounts folders to assigned paths
     mounts: {
       "/azk/#{manifest.dir}": ".",
+      '/azk/bundler'        : persistent('bundler'),
     },
     http: {
       domains: [ "#{system.name}.#{azk.default_domain}" ]
@@ -26,7 +28,9 @@ systems({
       http: "4000/tcp",
     },
     envs: {
-      PATH: "/azk/#{manifest.dir}/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      RUBY_ENV : "development",
+      PATH: "/azk/#{manifest.dir}/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      BUNDLE_APP_CONFIG : "/azk/bundler",
     }
   },
 });
