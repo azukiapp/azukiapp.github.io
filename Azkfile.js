@@ -8,19 +8,22 @@ systems({
     // Dependent systems
     depends: [],
     // More images:  http://images.azk.io
-    image: "dockerfile/nodejs",
+    image: "kisenka/centos6-jekyll",
     // Steps to execute before running instances
     provision: [
       "npm install",
     ],
-    command: "node index.js",
+    command: "jekyll serve -s ./src/ --port=$HTTP_PORT --watch --force_polling",
     workdir: "/azk/#{manifest.dir}",
     // Mounts folders to assigned paths
     mounts: {
       "/azk/#{manifest.dir}": ".",
     },
     http: {
-      hostname: "azk.io.#{azk.default_domain}",
+      domains: [ "#{system.name}.#{azk.default_domain}" ]
+    },
+    ports: {
+      http: "4000/tcp",
     },
     envs: {
       PATH: "/azk/#{manifest.dir}/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
