@@ -19,13 +19,9 @@ module.exports = function( grunt ) {
         region              : 'sa-east-1',
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
-        params: {
-          CacheControl: 'max-age=63072000000, public',
-          Expires: (new Date(Date.now() + 63072000000)) // 2 years
-        },
         bucket              : '<%= aws.bucket %>',
-        differential        : true,
-        displayChangesOnly  : true,
+        differential        : 'delete',
+        displayChangesOnly  : false,
       },
       deploy: {
         files: [
@@ -84,26 +80,6 @@ module.exports = function( grunt ) {
         "src/_assets/js/prism.min.js",
         "src/_assets/css/all.min.css",
       ],
-    },
-
-    browserSync: {
-      files: {
-        src : [
-          'css/*.css',
-          '*.html'
-        ],
-      },
-      options: {
-        watchTask: true,
-        server: {
-          baseDir: "."
-        },
-        ghostMode: {
-          scroll: true,
-          links : true,
-          forms : true
-        }
-      },
     },
 
     uglify: {
