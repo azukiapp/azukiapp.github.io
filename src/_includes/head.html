@@ -5,20 +5,11 @@
   <meta content="Use AZK and get development environments installed and configured automatically on your own machine… and then just code." name="description">
   <meta content="AZK" name="author">
   <!-- JS  -->
-  {% javascript js/prism %}
-  {% javascript js/prism_azkfile %}
+  {% bundle %}
+  - /_assets/js/prism.js
+  - /_assets/js/prism_azkfile.js
+  {% endbundle %}
 
-  <!-- Bootstrap  -->
-  {% stylesheet css/bootstrap %}
-  <!-- Font Awesome  -->
-  {% stylesheet css/font-awesome %}
-  <!-- Revolution Responsive jQuery Slider -->
-  {% stylesheet css/settings %}
-  <!-- Landlr Style -->
-  {% stylesheet css/colors %}
-  {% stylesheet css/style %}
-  {% stylesheet css/prism %}
-  {% stylesheet css/responsive %}
   <!-- Favicon and touch icons  -->
   <link href="ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
   <link href="ico/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
