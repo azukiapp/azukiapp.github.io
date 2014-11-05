@@ -176,7 +176,7 @@ module.exports = function( grunt ) {
     "uglify:javascripts",
     "uglify:prismJs",
     "cssmin:combine",
-    "shell:build"]);
+    "shell"]);
 
   grunt.registerTask('compile',
    ["uglifier",
