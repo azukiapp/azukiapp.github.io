@@ -14,13 +14,13 @@ systems({
       'npm install',
       'bundle install --path /azk/bundler',
     ],
-    command: 'bundle exec jekyll serve -s ./src/ --port=$HTTP_PORT --watch --force_polling',
+    command: 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
     workdir: '/azk/#{manifest.dir}',
     // Mounts folders to assigned paths
     mounts: {
       '/azk/#{manifest.dir}'             : '.',
-      '/azk/#{manifest.dir}/_site'       : persistent('_site'),
-      '/azk/#{manifest.dir}/node_modules': persistent('node_modules'),
+      '/azk/#{manifest.dir}/_site'       : '_site',
+      '/azk/#{manifest.dir}/node_modules': 'node_modules',
       '/azk/bundler'                     : persistent('bundler'),
     },
     http: {

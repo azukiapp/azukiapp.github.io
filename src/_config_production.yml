@@ -1,6 +1,6 @@
 
 # Site settings
-production: false
+production: true
 title: azk
 email: azk@azukiapp.com
 description: "Azk landpage project"
@@ -16,11 +16,11 @@ permalink: pretty
 gems: [jekyll-assets]
 
 assets:
-  js_compressor: ~
-  css_compressor: ~
+  js_compressor: uglifier
+  css_compressor: sass
   cache: false
   gzip: false
-  cachebust:
+  cachebust: hard
   baseurl: /assets/
   sources:
     - _assets
