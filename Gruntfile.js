@@ -16,8 +16,8 @@ module.exports = function( grunt ) {
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
         params: {
-          CacheControl: 'max-age=86400000, public',
-          Expires: (new Date(Date.now() + 86400000)) // 2 days
+          CacheControl: 'max-age=63072000000, public',
+          Expires: (new Date(Date.now() + 63072000000)) // 2 years
         },
         bucket              : '<%= aws.bucket %>',
         differential        : true,
