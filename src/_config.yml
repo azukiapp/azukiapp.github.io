@@ -77,7 +77,7 @@ assets:
   # You can set it to `false` to disable gzipping. Only javascripts and
   # stylesheets are gzipped by default.
   #
-  gzip: [ text/css, application/javascript ]
+  gzip: false #[ text/css, application/javascript ]
   #
   # Does not concatenates files requested by `javascript` and `stylesheet`
   # helpers. Instead outputs multiple files in order they are required.

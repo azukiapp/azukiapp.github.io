@@ -34,7 +34,7 @@ module.exports = function( grunt ) {
       main: {
         options: { mode: 'gzip' },
         files: [
-          { expand: false , src: ['index-min.html'] , dest: './build/index.html' },
+          { expand: false , src: ['index.html'] , dest: './build/index.html' },
           { expand: true ,
             src: [
               'assets/**/*',
