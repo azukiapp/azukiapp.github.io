@@ -13,8 +13,7 @@ jQuery(document).ready(function ($){
                 jQuery(event.target).parent().addClass('active');
             }
         });
-
-
+        event.preventDefault();
         return false;
     });
 
@@ -24,7 +23,6 @@ jQuery(document).ready(function ($){
         selectedAnchor.parent().addClass('active');
     }
 
-    // $('body').scrollspy({ target: '.navbar-collapse' });
 });
 
 var tpj=jQuery;

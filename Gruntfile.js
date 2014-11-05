@@ -20,8 +20,12 @@ module.exports = function( grunt ) {
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
         bucket              : '<%= aws.bucket %>',
-        differential        : 'delete',
+        differential        : false,
         displayChangesOnly  : false,
+        params: {
+          CacheControl: 'max-age=630720000, public',
+          Expires: (new Date(Date.now() + 63072000000)) // 2 years
+        }
       },
       deploy: {
         files: [
@@ -30,10 +34,7 @@ module.exports = function( grunt ) {
             cwd: "./build/_site",
             src: ['assets/**/*'],
             stream: true,
-            params: { ContentEncoding: 'gzip',
-                      CacheControl: 'max-age=63072000000, public',
-                      Expires: (new Date(Date.now() + 63072000000)) // 2 years
-                    }
+            params: { ContentEncoding: 'gzip' }
           },
           {
             expand: true,
@@ -44,6 +45,10 @@ module.exports = function( grunt ) {
           }
         ],
       },
+      deleteAll:  {
+        dest: '/',
+        'action': 'delete'
+      }
     },
 
     compress: {
