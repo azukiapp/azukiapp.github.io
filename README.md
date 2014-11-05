@@ -13,9 +13,7 @@ AZK is an open-source tool to help automate and manage the setup of developer en
 #### Start azk agent
 	azk agent start
 #### Start azk
-    azk start
-#### View logs
-	azk logs --tail
+    azk start; azk logs --tail
 #### Open
     http://azk-landpage.azk.dev/
 
@@ -39,9 +37,7 @@ AZK é uma ferramenta de código aberto para automação da montagem e da gestã
 #### Inicie o azk agent
     azk agent start
 #### Inicie o azk
-    azk start
-#### View logs
-    azk logs --tail
+    azk start; azk logs --tail
 #### Abra o endereço
     http://azk-landpage.azk.dev/
 
