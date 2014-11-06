@@ -22,10 +22,10 @@ module.exports = function(grunt) {
             src: ['bower_components/fontawesome/css/font-awesome.css'],
             dest: 'src/_assets/css/font-awesome.css'
           },
-          {
-            src: ['bower_components/prism/themes/prism.css'],
-            dest: 'src/_assets/css/prism.css'
-          },
+          // {
+          //   src: ['bower_components/prism/themes/prism.css'],
+          //   dest: 'src/_assets/css/prism.css'
+          // },
           {
             src: ['bower_components/prism/themes/prism-okaidia.css'],
             dest: 'src/_assets/css/prism-okaidia.css'
@@ -189,8 +189,9 @@ module.exports = function(grunt) {
             'src/_assets/css/settings.css',
             'src/_assets/css/colors.css',
             'src/_assets/css/style.css',
-            'src/_assets/css/prism.css',
+            // 'src/_assets/css/prism.css',
             'src/_assets/css/prism-okaidia.css',
+            'src/_assets/css/prism-line-numbers.css',
             'src/_assets/css/responsive.css',
           ]
         }
