@@ -22,10 +22,6 @@ module.exports = function(grunt) {
             src: ['bower_components/fontawesome/css/font-awesome.css'],
             dest: 'src/_assets/css/font-awesome.css'
           },
-          // {
-          //   src: ['bower_components/prism/themes/prism.css'],
-          //   dest: 'src/_assets/css/prism.css'
-          // },
           {
             src: ['bower_components/prism/themes/prism-okaidia.css'],
             dest: 'src/_assets/css/prism-okaidia.css'
@@ -79,7 +75,7 @@ module.exports = function(grunt) {
       deployIndex: {
         options: {
           gzip: true,
-          differential: false,
+          differential: true,
           params: {
             ContentEncoding: 'gzip'
           }
@@ -96,7 +92,7 @@ module.exports = function(grunt) {
       deployAssets: {
         options: {
           gzip: true,
-          differential: false,
+          differential: true,
           params: {
             ContentEncoding: 'gzip',
             CacheControl: 'max-age=630720000, public',
