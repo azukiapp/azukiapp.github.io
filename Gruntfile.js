@@ -1,15 +1,69 @@
-"use strict";
+'use strict';
 
-
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+
+    copy: {
+      main: {
+        files: [
+          //CSS
+          {
+            src: ['bower_components/bootstrap/dist/css/bootstrap.css'],
+            dest: 'src/_assets/css/bootstrap.css'
+          },
+          {
+            src: ['bower_components/fontawesome/css/font-awesome.css'],
+            dest: 'src/_assets/css/font-awesome.css'
+          },
+          {
+            src: ['bower_components/fontawesome/css/font-awesome.css'],
+            dest: 'src/_assets/css/font-awesome.css'
+          },
+          {
+            src: ['bower_components/prism/themes/prism.css'],
+            dest: 'src/_assets/css/prism.css'
+          },
+          {
+            src: ['bower_components/prism/themes/prism-okaidia.css'],
+            dest: 'src/_assets/css/prism-okaidia.css'
+          },
+
+          //JS
+          {
+            src: ['bower_components/jquery/dist/jquery.js'],
+            dest: 'src/_assets/js/jquery.js'
+          },
+          {
+            src: ['bower_components/bootstrap/dist/js/bootstrap.js'],
+            dest: 'src/_assets/js/bootstrap.js'
+          },
+          {
+            src: ['bower_components/html5shiv/dist/html5shiv.js'],
+            dest: 'src/_assets/js/html5shiv.js'
+          },
+          {
+            src: ['bower_components/jquery.easing/js/jquery.easing.js'],
+            dest: 'src/_assets/js/jquery.easing.js'
+          },
+          {
+            src: ['bower_components/scrollToBySpeed/src/scrolltobyspeed.jquery.js'],
+            dest: 'src/_assets/js/scrolltobyspeed.jquery.js'
+          },
+          {
+            src: ['bower_components/prism/prism.js'],
+            dest: 'src/_assets/js/prism.js'
+          },
+        ],
+      },
+    },
+
     aws: {
-      "accessKeyId" : process.env.AWS_ACCESS_KEY_ID,
-      "secretKey"   : process.env.AWS_SECRET_KEY,
-      "bucket"      : process.env.AWS_BUCKET,
+      'accessKeyId' : process.env.AWS_ACCESS_KEY_ID,
+      'secretKey'   : process.env.AWS_SECRET_KEY,
+      'bucket'      : process.env.AWS_BUCKET,
     },
 
     aws_s3: {
@@ -22,7 +76,7 @@ module.exports = function( grunt ) {
         bucket              : '<%= aws.bucket %>'
       },
 
-      deploy_index: {
+      deployIndex: {
         options: {
           gzip: true,
           differential: false,
@@ -33,13 +87,13 @@ module.exports = function( grunt ) {
         files: [
           {
             expand: true,
-            cwd: "./build/_site",
+            cwd: './build/_site',
             src: ['index.html'],
           }
         ],
       },
 
-      deploy_assets: {
+      deployAssets: {
         options: {
           gzip: true,
           differential: false,
@@ -52,7 +106,7 @@ module.exports = function( grunt ) {
         files: [
           {
             expand: true,
-            cwd: "./build/_site",
+            cwd: './build/_site',
             src: ['assets/**/*'],
           },
         ],
@@ -66,10 +120,10 @@ module.exports = function( grunt ) {
 
     compress: {
       main: {
-        options: { mode: 'gzip' },
+        options: {mode: 'gzip'},
         files: [
-          { expand: false , src: ['./_site/index.html'] , dest: './build/_site/index.html' },
-          { expand: true ,
+          {expand: false , src: ['./_site/index.html'] , dest: './build/_site/index.html' },
+          {expand: true ,
             src: [
               './_site/assets/**/*',
             ] ,
@@ -88,15 +142,15 @@ module.exports = function( grunt ) {
 
     clean: {
       site : [
-        "_site",
+        '_site',
       ],
       build : [
-        "build/*",
+        'build/*',
       ],
       minified : [
-        "src/_assets/js/all.min.js",
-        "src/_assets/js/prism.min.js",
-        "src/_assets/css/all.min.css",
+        'src/_assets/js/all.min.js',
+        'src/_assets/js/prism.min.js',
+        'src/_assets/css/all.min.css',
       ],
     },
 
@@ -105,11 +159,11 @@ module.exports = function( grunt ) {
         files: {
           'src/_assets/js/all.min.js': [
             'src/_assets/js/jquery.js',
-            'src/_assets/js/jquery.easing.1.3.js',
-            'src/_assets/js/jquery.scrollTo.min.js',
+            'src/_assets/js/jquery.easing.js',
+            'src/_assets/js/scrolltobyspeed.jquery.js',
             'src/_assets/js/jquery.themepunch.revolution.min.js',
             'src/_assets/js/html5shiv.js',
-            'src/_assets/js/bootstrap.min.js',
+            'src/_assets/js/bootstrap.js',
             'src/_assets/js/custom.js',
           ]
         }
@@ -119,6 +173,7 @@ module.exports = function( grunt ) {
         files: {
           'src/_assets/js/prism.min.js': [
             'src/_assets/js/prism.js',
+            'src/_assets/js/prism-okaidia.js',
             'src/_assets/js/prism_azkfile.js',
           ]
         }
@@ -135,6 +190,7 @@ module.exports = function( grunt ) {
             'src/_assets/css/colors.css',
             'src/_assets/css/style.css',
             'src/_assets/css/prism.css',
+            'src/_assets/css/prism-okaidia.css',
             'src/_assets/css/responsive.css',
           ]
         }
@@ -165,19 +221,20 @@ module.exports = function( grunt ) {
   });
 
   grunt.registerTask('uglifier',
-   ["clean:site",
-    "clean:minified",
-    "uglify:javascripts",
-    "uglify:prismJs",
-    "cssmin:combine",
-    "shell"]);
+   ['clean:site',
+    'clean:minified',
+    'uglify:javascripts',
+    'uglify:prismJs',
+    'cssmin:combine',
+    'shell']);
 
   grunt.registerTask('compile',
-   ["uglifier",
-    "newer:compress:main"]);
+   ['uglifier',
+    'newer:compress:main']);
 
   grunt.registerTask('deploy' ,
-   ["compile",
-    "aws_s3:deploy_index",
-    "aws_s3:deploy_assets"]);
+   ['copy',
+    'compile',
+    'aws_s3:deployIndex',
+    'aws_s3:deployAssets']);
 };
