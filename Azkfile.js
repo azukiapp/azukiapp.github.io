@@ -1,40 +1,30 @@
-/**
- * Documentation: http://docs.azk.io/Azkfile.js
- */
-
-// Adds the systems that shape your system
 systems({
   'azk-landpage': {
     // Dependent systems
     depends: [],
     // More images:  http://images.azk.io
-    image: 'kisenka/centos6-jekyll',
+    image: 'dynaum/ruby-bundler-node',
     // Steps to execute before running instances
     provision: [
-      'npm install',
-      'bundle install --path /azk/bundler',
+      'bundle install --path /azk/bundler'
     ],
-    command: 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
-    workdir: '/azk/#{manifest.dir}',
+    workdir : '/azk/#{manifest.dir}',
+    command : 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
+    shell   : '/bin/bash',
+    // not expect application response
+    scalable: {'default': 1},
     // Mounts folders to assigned paths
     mounts: {
-      '/azk/#{manifest.dir}'             : '.',
-      '/azk/#{manifest.dir}/_site'       : '_site',
-      '/azk/#{manifest.dir}/node_modules': 'node_modules',
-      '/azk/bundler'                     : persistent('bundler'),
+      '/azk/#{manifest.dir}': path('.'),
+      '/azk/bundler'        : persistent('bundler'),
     },
     http: {
-      domains: [ '#{system.name}.#{azk.default_domain}' ]
-    },
-    ports: {
-      http: '4000/tcp',
+      domains: ['#{system.name}.#{azk.default_domain}']
     },
     envs: {
+      // set instances variables
       RUBY_ENV : 'development',
-      PATH: '/azk/#{manifest.dir}/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
       BUNDLE_APP_CONFIG : '/azk/bundler',
-    }
+    },
   },
 });
-
-
