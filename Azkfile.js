@@ -6,7 +6,8 @@ systems({
     image: 'dynaum/ruby-bundler-node',
     // Steps to execute before running instances
     provision: [
-      'bundle install --path /azk/bundler'
+      'bundle install --path /azk/bundler',
+      'npm install'
     ],
     workdir : '/azk/#{manifest.dir}',
     command : 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
