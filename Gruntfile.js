@@ -19,32 +19,45 @@ module.exports = function( grunt ) {
         region              : 'sa-east-1',
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
-        bucket              : '<%= aws.bucket %>',
-        differential        : false,
-        displayChangesOnly  : false,
-        params: {
-          CacheControl: 'max-age=630720000, public',
-          Expires: (new Date(Date.now() + 63072000000)) // 2 years
-        }
+        bucket              : '<%= aws.bucket %>'
       },
-      deploy: {
+
+      deploy_index: {
+        options: {
+          gzip: true,
+          differential: false,
+          params: {
+            ContentEncoding: 'gzip'
+          }
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "./build/_site",
+            src: ['index.html'],
+          }
+        ],
+      },
+
+      deploy_assets: {
+        options: {
+          gzip: true,
+          differential: false,
+          params: {
+            ContentEncoding: 'gzip',
+            CacheControl: 'max-age=630720000, public',
+            Expires: (new Date(Date.now() + 63072000000)) // 2 years
+          }
+        },
         files: [
           {
             expand: true,
             cwd: "./build/_site",
             src: ['assets/**/*'],
-            stream: true,
-            params: { ContentEncoding: 'gzip' }
           },
-          {
-            expand: true,
-            cwd: "./build/_site",
-            src: ['index.html'],
-            stream: true,
-            params: { ContentEncoding: 'gzip' }
-          }
         ],
       },
+
       deleteAll:  {
         dest: '/',
         'action': 'delete'
@@ -165,5 +178,6 @@ module.exports = function( grunt ) {
 
   grunt.registerTask('deploy' ,
    ["compile",
-    "aws_s3:deploy"]);
+    "aws_s3:deploy_index",
+    "aws_s3:deploy_assets"]);
 };
