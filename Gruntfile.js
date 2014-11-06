@@ -1,11 +1,65 @@
-"use strict";
+'use strict';
 
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
+
+  require('load-grunt-tasks')(grunt);
+
   grunt.initConfig({
+
+    copy: {
+      main: {
+        files: [
+          //CSS
+          {
+            src: ['bower_components/bootstrap/dist/css/bootstrap.css'],
+            dest: 'src/_assets/css/bootstrap.css'
+          },
+          {
+            src: ['bower_components/fontawesome/css/font-awesome.css'],
+            dest: 'src/_assets/css/font-awesome.css'
+          },
+          {
+            src: ['bower_components/fontawesome/css/font-awesome.css'],
+            dest: 'src/_assets/css/font-awesome.css'
+          },
+          {
+            src: ['bower_components/prism/themes/prism-okaidia.css'],
+            dest: 'src/_assets/css/prism-okaidia.css'
+          },
+
+          //JS
+          {
+            src: ['bower_components/jquery/dist/jquery.js'],
+            dest: 'src/_assets/js/jquery.js'
+          },
+          {
+            src: ['bower_components/bootstrap/dist/js/bootstrap.js'],
+            dest: 'src/_assets/js/bootstrap.js'
+          },
+          {
+            src: ['bower_components/html5shiv/dist/html5shiv.js'],
+            dest: 'src/_assets/js/html5shiv.js'
+          },
+          {
+            src: ['bower_components/jquery.easing/js/jquery.easing.js'],
+            dest: 'src/_assets/js/jquery.easing.js'
+          },
+          {
+            src: ['bower_components/scrollToBySpeed/src/scrolltobyspeed.jquery.js'],
+            dest: 'src/_assets/js/scrolltobyspeed.jquery.js'
+          },
+          {
+            src: ['bower_components/prism/prism.js'],
+            dest: 'src/_assets/js/prism.js'
+          },
+        ],
+      },
+    },
+
     aws: {
-      "accessKeyId" : process.env.AWS_ACCESS_KEY_ID,
-      "secretKey"   : process.env.AWS_SECRET_KEY,
-      "bucket"      : process.env.AWS_BUCKET,
+      'accessKeyId' : process.env.AWS_ACCESS_KEY_ID,
+      'secretKey'   : process.env.AWS_SECRET_KEY,
+      'bucket'      : process.env.AWS_BUCKET,
     },
 
     aws_s3: {
@@ -15,36 +69,61 @@ module.exports = function( grunt ) {
         region              : 'sa-east-1',
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
-        params: {
-          CacheControl: 'max-age=86400000, public',
-          Expires: (new Date(Date.now() + 86400000)) // 2 days
-        },
-        bucket              : '<%= aws.bucket %>',
-        differential        : true,
-        displayChangesOnly  : true,
+        bucket              : '<%= aws.bucket %>'
       },
-      deploy: {
+
+      deployIndex: {
+        options: {
+          gzip: true,
+          differential: true,
+          params: {
+            ContentEncoding: 'gzip'
+          }
+        },
         files: [
-          {expand: true, cwd: "./build", src: ['**/*'], stream: true, params: { ContentEncoding: 'gzip' }},
+          {
+            expand: true,
+            cwd: './build/_site',
+            src: ['index.html'],
+          }
         ],
       },
+
+      deployAssets: {
+        options: {
+          gzip: true,
+          differential: true,
+          params: {
+            ContentEncoding: 'gzip',
+            CacheControl: 'max-age=630720000, public',
+            Expires: (new Date(Date.now() + 63072000000)) // 2 years
+          }
+        },
+        files: [
+          {
+            expand: true,
+            cwd: './build/_site',
+            src: ['assets/**/*'],
+          },
+        ],
+      },
+
+      deleteAll:  {
+        dest: '/',
+        'action': 'delete'
+      }
     },
 
     compress: {
       main: {
-        options: { mode: 'gzip' },
+        options: {mode: 'gzip'},
         files: [
-          { expand: false , src: ['index.html'] , dest: './build/index.html' },
-          { expand: true ,
+          {expand: false , src: ['./_site/index.html'] , dest: './build/_site/index.html' },
+          {expand: true ,
             src: [
-              'assets/**/*',
-              'css/**/*',
-              'fonts/**/*',
-              'ico/**/*',
-              'images/**/*',
-              'js/**/*',
+              './_site/assets/**/*',
             ] ,
-            dest: './build/'
+            dest: './build'
           },
         ]
       }
@@ -58,60 +137,40 @@ module.exports = function( grunt ) {
     },
 
     clean: {
-      build : [
-        "build/*",
+      site : [
+        '_site',
       ],
-    },
-
-    imagemin: {
-      dynamic: {
-        files: [{
-          expand: true,
-          src: ['images/**/*.{png,jpg,gif}'],
-        }]
-      }
-    },
-
-    browserSync: {
-      files: {
-        src : [
-          'css/*.css',
-          '*.html'
-        ],
-      },
-      options: {
-        watchTask: true,
-        server: {
-          baseDir: "."
-        },
-        ghostMode: {
-          scroll: true,
-          links : true,
-          forms : true
-        }
-      },
+      build : [
+        'build/*',
+      ],
+      minified : [
+        'src/_assets/js/all.min.js',
+        'src/_assets/js/prism.min.js',
+        'src/_assets/css/all.min.css',
+      ],
     },
 
     uglify: {
       javascripts: {
         files: {
-          'js/min/all-uglified.min.js': [
-            'js/jquery.js',
-            'js/jquery.easing.1.3.js',
-            'js/jquery.scrollTo.min.js',
-            'js/jquery.themepunch.revolution.min.js',
-            'js/html5shiv.js',
-            'js/bootstrap.min.js',
-            'js/custom.js',
+          'src/_assets/js/all.min.js': [
+            'src/_assets/js/jquery.js',
+            'src/_assets/js/jquery.easing.js',
+            'src/_assets/js/scrolltobyspeed.jquery.js',
+            'src/_assets/js/jquery.themepunch.revolution.min.js',
+            'src/_assets/js/html5shiv.js',
+            'src/_assets/js/bootstrap.js',
+            'src/_assets/js/custom.js',
           ]
         }
       },
 
       prismJs: {
         files: {
-          'js/min/prism-uglified.min.js': [
-            'js/prism.js',
-            'js/prism_azkfile.js',
+          'src/_assets/js/prism.min.js': [
+            'src/_assets/js/prism.js',
+            'src/_assets/js/prism-okaidia.js',
+            'src/_assets/js/prism_azkfile.js',
           ]
         }
       }
@@ -120,47 +179,59 @@ module.exports = function( grunt ) {
     cssmin: {
       combine: {
         files: {
-          'css/all-uglified.min.css': [
-            'css/bootstrap.css',
-            'css/font-awesome.css',
-            'css/settings.css',
-            'css/colors.css',
-            'css/style.css',
-            'css/prism.css',
-            'css/responsive.css',
+          'src/_assets/css/all.min.css': [
+            'src/_assets/css/bootstrap.css',
+            'src/_assets/css/font-awesome.css',
+            'src/_assets/css/settings.css',
+            'src/_assets/css/colors.css',
+            'src/_assets/css/style.css',
+            // 'src/_assets/css/prism.css',
+            'src/_assets/css/prism-okaidia.css',
+            'src/_assets/css/prism-line-numbers.css',
+            'src/_assets/css/responsive.css',
           ]
         }
       }
     },
 
-    htmlmin: {
-      dist: {
+    // htmlmin: {
+    //   dist: {
+    //     options: {
+    //       removeComments: true,
+    //       collapseWhitespace: true
+    //     },
+    //     files: {
+    //       'index-min.html': 'index.html',
+    //     }
+    //   },
+    // },
+
+    shell: {
         options: {
-          removeComments: true,
-          collapseWhitespace: true
+            stderr: false
         },
-        files: {
-          'index-min.html': 'index.html',
+        target: {
+            command: 'bundle exec jekyll build -s ./src/ --config ./src/_config_production.yml'
         }
-      },
-    }
+    },
 
   });
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browser-sync');
-  grunt.loadNpmTasks('grunt-aws-s3');
-  grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-newer');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.registerTask('uglifier',
+   ['clean:site',
+    'clean:minified',
+    'uglify:javascripts',
+    'uglify:prismJs',
+    'cssmin:combine',
+    'shell']);
 
-  grunt.registerTask('default', ["browserSync", "watch"]);
-  grunt.registerTask('assets',  ["imagemin"]);
-  grunt.registerTask('uglifier',["uglify", "cssmin", "htmlmin"]);
-  grunt.registerTask('compile', ["uglifier", "clean:build", "newer:compress:main"]);
-  grunt.registerTask('deploy' , ["newer:compress:main", "aws_s3:deploy"]);
+  grunt.registerTask('compile',
+   ['uglifier',
+    'newer:compress:main']);
+
+  grunt.registerTask('deploy' ,
+   ['copy',
+    'compile',
+    'aws_s3:deployIndex',
+    'aws_s3:deployAssets']);
 };
