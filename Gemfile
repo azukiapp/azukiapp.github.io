@@ -5,6 +5,7 @@ gem 'jekyll'
 
 # https://github.com/ixti/jekyll-assets
 gem 'jekyll-assets'
-
+gem 'coffee-script'
+gem 'compass'
+gem 'sass'
 gem 'uglifier'
-gem 'yui-compressor'

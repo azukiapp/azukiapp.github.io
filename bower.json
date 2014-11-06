@@ -1,0 +1,23 @@
+{
+  "name": "azukiapp.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/azukiapp/azukiapp.github.io",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "scrollToBySpeed": "~0.3.0",
+    "jquery.easing": "~1.3.1",
+    "jquery": "~2.1.1",
+    "html5shiv": "~3.7.2",
+    "bootstrap": "~3.3.0",
+    "fontawesome": "~4.2.0",
+    "prism": "gh-pages"
+  }
+}

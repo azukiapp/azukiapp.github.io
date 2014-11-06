@@ -40,35 +40,35 @@
           <pre class="prettyprint line-numbers"><code class="language-azkfile">// AZK 0.6.0
 
 systems({
-'web': {
-depends: ["database"],
-image: "dockerfile/nodejs",
-provision: [
-"npm install",
-],
-command: "node index.js",
-workdir: "/azk/#{manifest.dir}",
-mounts: {
-"/azk/#{manifest.dir}": path('.'),
-},
-scalable: { default: 3 },
-http: {
-domains: [ "#{system.name}.#{azk.default_domain}" ],
-},
-envs: {
-NODE_ENV: "dev",
-},
-},
-database: {
-image: "azukiapp/redis",
-mounts: { "/data": persistent("data") },
-ports: {
-data: "6379/tcp",
-},
-export_envs: {
-REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
-},
-}
+  'web': {
+    depends: ["database"],
+    image: "dockerfile/nodejs",
+    provision: [
+      "npm install",
+    ],
+    command: "node index.js",
+    workdir: "/azk/#{manifest.dir}",
+    mounts: {
+      "/azk/#{manifest.dir}": path('.'),
+    },
+    scalable: { default: 3 },
+    http: {
+      domains: [ "#{system.name}.#{azk.default_domain}" ],
+    },
+    envs: {
+      NODE_ENV: "dev",
+    },
+  },
+  database: {
+    image: "azukiapp/redis",
+    mounts: { "/data": persistent("data") },
+    ports: {
+      data: "6379/tcp",
+    },
+    export_envs: {
+      REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
+    },
+  }
 });</code></pre>
         </div>
       </div>
@@ -77,42 +77,42 @@ REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
 
 // Add elements that compose your system and describe depedencies among them.
 systems({
-'web': {
-depends: ["database"],
-// Specify requisites for running your system.
-image: "dockerfile/nodejs",
-provision: [
-"npm install",
-],
-// Tell how and where we must run your system.
-command: "node index.js",
-workdir: "/azk/#{manifest.dir}",
-mounts: {
-"/azk/#{manifest.dir}": path("."),
-},
-// Give your system an URL and set the inital number of its instances.
-scalable: { default: 3 },
-http: {
-domains: [ "#{system.name}.#{azk.default_domain}" ],
-},
-// Add configuration parameters.
-envs: {
-NODE_ENV: "dev",
-},
-},
-database: {
-image: "azukiapp/redis",
-// Define persistent mounting points.
-mounts: { "/data": persistent("data") },
-// Map, name and tipify (udp/tcp) the ports you want to use.
-ports: {
-data: "6379/tcp",
-}
-// Export variables to child systems
-export_envs: {
-REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
-},
-}
+  'web': {
+    depends: ["database"],
+    // Specify requisites for running your system.
+    image: "dockerfile/nodejs",
+    provision: [
+      "npm install",
+    ],
+    // Tell how and where we must run your system.
+    command: "node index.js",
+    workdir: "/azk/#{manifest.dir}",
+    mounts: {
+      "/azk/#{manifest.dir}": path("."),
+    },
+    // Give your system an URL and set the inital number of its instances.
+    scalable: { default: 3 },
+    http: {
+      domains: [ "#{system.name}.#{azk.default_domain}" ],
+    },
+    // Add configuration parameters.
+    envs: {
+      NODE_ENV: "dev",
+    },
+  },
+  database: {
+    image: "azukiapp/redis",
+    // Define persistent mounting points.
+    mounts: { "/data": persistent("data") },
+    // Map, name and tipify (udp/tcp) the ports you want to use.
+    ports: {
+      data: "6379/tcp",
+    }
+    // Export variables to child systems
+    export_envs: {
+      REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
+    },
+  }
 });</code></pre>
       </div>
       <div class="visible-xs">
@@ -121,46 +121,46 @@ REDIS_URL: "redis://#{net.host}:#{net.port.data}/database",
 // Add elements that compose your system and
 // describe depedencies among them.
 systems({
-'web': {
-depends: ["database"],
-// Specify requisites for running your system.
-image: "dockerfile/nodejs",
-provision: [
-"npm install",
-],
-// Tell how and where we must run your system.
-command: "node index.js",
-workdir: "/azk/#{manifest.dir}",
-mounts: {
-"/azk/#{manifest.dir}": path("."),
-},
-// Give your system an URL and set the inital
-// number of its instances.
-scalable: { default: 3 },
-http: {
-domains:
-[ "#{system.name}.#{azk.default_domain}" ],
-},
-// Add configuration parameters.
-envs: {
-NODE_ENV: "dev",
-},
-},
-database: {
-image: "azukiapp/redis",
-// Define persistent mounting points.
-mounts: { "/data": persistent("data") },
-// Map, name and tipify (udp/tcp) the ports
-// you want to use.
-ports: {
-data: "6379/tcp",
-}
-// Export variables to child systems
-export_envs: {
-REDIS_URL:
-"redis://#{net.host}:#{net.port.data}",
-},
-}
+ 'web': {
+  depends: ["database"],
+  // Specify requisites for running your system.
+  image: "dockerfile/nodejs",
+  provision: [
+   "npm install",
+  ],
+  // Tell how and where we must run your system.
+  command: "node index.js",
+  workdir: "/azk/#{manifest.dir}",
+  mounts: {
+   "/azk/#{manifest.dir}": path("."),
+  },
+  // Give your system an URL and set the inital
+  // number of its instances.
+  scalable: { default: 3 },
+  http: {
+   domains:
+    [ "#{system.name}.#{azk.default_domain}" ],
+  },
+  // Add configuration parameters.
+  envs: {
+   NODE_ENV: "dev",
+  },
+ },
+ database: {
+   image: "azukiapp/redis",
+   // Define persistent mounting points.
+   mounts: { "/data": persistent("data") },
+   // Map, name and tipify (udp/tcp) the ports
+   // you want to use.
+   ports: {
+    data: "6379/tcp",
+   }
+   // Export variables to child systems
+   export_envs: {
+    REDIS_URL:
+      "redis://#{net.host}:#{net.port.data}",
+   },
+ }
 });</code></pre>
       </div>
     </div>

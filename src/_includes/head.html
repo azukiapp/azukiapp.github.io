@@ -4,11 +4,29 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="Use AZK and get development environments installed and configured automatically on your own machine… and then just code." name="description">
   <meta content="AZK" name="author">
+
   <!-- JS  -->
-  {% bundle %}
-  - /_assets/js/prism.js
-  - /_assets/js/prism_azkfile.js
-  {% endbundle %}
+  {% if site.production %}
+
+    {% javascript js/prism.min %}
+    {% stylesheet css/all.min %}
+
+  {% else %}
+
+    {% javascript js/prism %}
+    {% javascript js/prism_azkfile %}
+    {% stylesheet css/bootstrap %}
+    {% stylesheet css/font-awesome %}
+    {% stylesheet css/settings %}
+    {% stylesheet css/colors %}
+    {% stylesheet css/style %}
+    {% stylesheet css/prism-okaidia %}
+    {% stylesheet css/prism-line-numbers %}
+    {% stylesheet css/responsive %}
+
+  {% endif %}
+
+
 
   <!-- Favicon and touch icons  -->
   <link href="ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
