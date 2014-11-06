@@ -1,0 +1,14 @@
+{
+  "preset": "google",
+  "excludeFiles": [
+    "node_modules/**",
+    "_site/**",
+    "build/**",
+    ".azk/**"
+  ],
+  "requireCurlyBraces": null,
+  "esnext": true,
+  "validateIndentation": 2,
+  "validateQuoteMarks": "'",
+  "requireSpaceBeforeBlockStatements": true
+}
