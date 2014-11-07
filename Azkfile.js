@@ -1,3 +1,7 @@
+/**
+ * Documentation: http://docs.azk.io/Azkfile.js
+ */
+
 systems({
   'azk-landpage': {
     // Dependent systems
@@ -25,7 +29,7 @@ systems({
       '/azk/#{manifest.dir}/build'           : persistent('build'),
     },
     http: {
-      domains: ['#{system.name}.#{azk.default_domain}']
+      domains: [ '#{system.name}.#{azk.default_domain}' ]
     },
     envs: {
       // set instances variables
