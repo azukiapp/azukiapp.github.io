@@ -13,11 +13,28 @@ github_username:  azukiapp
 markdown: kramdown
 permalink: pretty
 
+# https://github.com/moshen/jekyll-asset_bundler
+asset_bundler:
+  compress:
+    js: false
+    css: false
+  base_path: /_assets/
+  server_url:
+  remove_bundled: false
+  dev: false
+  bundle_name: false
+  markup_templates:
+    js: "<script type='text/javascript' src='{{url}}'></script>\n"
+    css: "<link rel='stylesheet' type='text/css' href='{{url}}' />\n"
+
+# https://github.com/ixti/jekyll-assets
 gems: [jekyll-assets]
 
+# #
 assets:
-  js_compressor: ~
-  css_compressor: ~
+#   js_compressor: ~
+#   css_compressor: ~
+#   cache: false
   cache: false
   gzip: false
   cachebust:
