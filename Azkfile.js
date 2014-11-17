@@ -19,10 +19,10 @@ systems({
     mounts: {
       '/azk/bundler'                         : persistent('bundler'),
       '/azk/#{manifest.dir}'                 : path('.'),
-      '/azk/#{manifest.dir}/_site'           : persistent('_site'),
-      '/azk/#{manifest.dir}/bower_components': persistent('bower_components'),
-      '/azk/#{manifest.dir}/node_modules'    : persistent('node_modules'),
-      '/azk/#{manifest.dir}/build'           : persistent('build'),
+      '/azk/#{manifest.dir}/_site'           : path('_site'),
+      '/azk/#{manifest.dir}/bower_components': path('bower_components'),
+      '/azk/#{manifest.dir}/node_modules'    : path('node_modules'),
+      '/azk/#{manifest.dir}/build'           : path('build'),
     },
     http: {
       domains: ['#{system.name}.#{azk.default_domain}']
