@@ -45,8 +45,8 @@ module.exports = function(grunt) {
             dest: 'src/_assets/js/jquery.easing.js'
           },
           {
-            src: ['bower_components/scrollToBySpeed/src/scrolltobyspeed.jquery.js'],
-            dest: 'src/_assets/js/scrolltobyspeed.jquery.js'
+            src: ['bower_components/jquery.scrollTo/jquery.scrollTo.js'],
+            dest: 'src/_assets/js/jquery.scrollTo.js'
           },
           {
             src: ['bower_components/prism/prism.js'],
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
           'src/_assets/js/all.min.js': [
             'src/_assets/js/jquery.js',
             'src/_assets/js/jquery.easing.js',
-            'src/_assets/js/scrolltobyspeed.jquery.js',
+            'src/_assets/js/jquery.scrollTo.js',
             'src/_assets/js/jquery.themepunch.revolution.min.js',
             'src/_assets/js/html5shiv.js',
             'src/_assets/js/bootstrap.js',
