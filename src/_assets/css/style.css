@@ -801,6 +801,7 @@ pre.prettyprint {padding: 15px 10px; text-align:left;}
 	color: #FFF;
 	text-align: left;
 	font-style: italic;
+	font-size: inherit;
 }
 
 .testimonal:before {
