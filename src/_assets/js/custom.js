@@ -1,17 +1,23 @@
 //Nav
 $(function() {
+
+  $('body').scrollspy({ target: '.navbar-collapse' });
+
   // when nav bar links clicked, highlight them
   var navBarOrFootLinks = $('.navbar .nav > li > a, .footer-nav > li > a');
+
   navBarOrFootLinks.click(function(ev) {
 
-    $(".navbar-collapse").collapse('hide');
+    if(Boolean($('.navbar-collapse').attr('aria-expanded'))) {
+      $(".navbar-collapse").collapse('hide');
+    }
 
     ev.preventDefault();
     ev.stopPropagation();
 
     var href = $.attr(this, 'href');
     $.scrollTo(href, {
-      duration: 1000,
+      duration: 500,
       easing:'easeInOutExpo',
       onAfter: function() {
         history.pushState(null, null, href);
