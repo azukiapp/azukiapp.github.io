@@ -18,7 +18,7 @@ $(function() {
 
     //inactive all and put activeclass on the right place
     $('li.active').removeClass('active');
-    $(ev.target).parent().addClass('active');
+    $(ev.target).parent().addClass('active').attr("tabindex",-1).focus();
 
     return false;
   });
@@ -26,7 +26,7 @@ $(function() {
   if (document.location.hash !== '') {
     $('li.active').removeClass('active');
     var selectedAnchor = $('a[href=' + document.location.hash + ']:eq(0)');
-    selectedAnchor.parent().addClass('active');
+    selectedAnchor.parent().addClass('active').attr("tabindex",-1).focus();
   }
 
 });

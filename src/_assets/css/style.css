@@ -257,6 +257,10 @@ p, ul { color: rgba(34,42,49,.7); }
 	padding: 10px 60px auto 60px;;
 }
 
+.navbar .nav > li:focus {
+  outline: 0;
+}
+
 .navbar-inner {
 	background: #fff;
 	background-image: none;
