@@ -5,3 +5,6 @@
 /_site
 .env
 .azk
+src/_assets/css/all.min.css
+src/_assets/js/all.min.js
+src/_assets/js/prism.min.js
