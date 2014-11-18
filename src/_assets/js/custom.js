@@ -3,14 +3,18 @@ $(function() {
   // when nav bar links clicked, highlight them
   var navBarOrFootLinks = $('.navbar .nav > li > a, .footer-nav > li > a');
   navBarOrFootLinks.click(function(ev) {
-
     ev.preventDefault();
     ev.stopPropagation();
+
+    if(Boolean($('.navbar-collapse').attr('aria-expanded'))) {
+      $(".navbar-collapse").collapse('hide');
+    }
 
     var href = $.attr(this, 'href');
     $.scrollTo(href, {
       duration: 1000,
       easing:'easeInOutExpo',
+
       onAfter: function() {
         history.pushState(null, null, href);
       }
