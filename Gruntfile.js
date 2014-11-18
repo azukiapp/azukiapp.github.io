@@ -218,20 +218,32 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('uglifier',
-   ['clean:site',
+   [
+    'clean:site',
     'clean:minified',
     'uglify:javascripts',
     'uglify:prismJs',
     'cssmin:combine',
-    'shell']);
+    'shell'
+   ]);
 
   grunt.registerTask('compile',
-   ['uglifier',
-    'newer:compress:main']);
+   [
+    'uglifier',
+    'newer:compress:main'
+   ]);
 
-  grunt.registerTask('deploy' ,
-   ['copy',
+  grunt.registerTask('deploy',
+   [
+    'copy',
     'compile',
     'aws_s3:deployIndex',
-    'aws_s3:deployAssets']);
+    'aws_s3:deployAssets'
+   ]);
+
+  grunt.registerTask('cleanCopy',
+   [
+    'clean:site',
+    'copy',
+   ]);
 };

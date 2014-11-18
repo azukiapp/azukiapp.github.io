@@ -13,6 +13,7 @@ systems({
       'bundle install --path /azk/bundler',
       'npm install',
       './node_modules/bower/bin/bower --allow-root install',
+      './node_modules/grunt-cli/bin/grunt cleanCopy',
     ],
     workdir : '/azk/#{manifest.dir}',
     command : 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
