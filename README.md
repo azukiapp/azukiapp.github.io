@@ -32,7 +32,7 @@ Open [http://azk-landpage.azk.dev/](http://azk-landpage.azk.dev/)
 Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` file and run:
 
   ```bash
-  $ azk shell --shell=/bin/bash -c './node_modules/grunt-cli/bin/grunt deploy'
+  $ azk shell -c 'grunt deploy'
   ```
 
 ## Portuguese Version
@@ -71,7 +71,7 @@ Abra o endereço
 Adicione as chaves `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` e `AWS_BUCKET` no arquivo local `.env` e depois execute:
 
   ```bash
-  $ azk shell --shell=/bin/bash -c './node_modules/grunt-cli/bin/grunt deploy'
+  $ azk shell -c 'grunt deploy'
   ```
 
 ## License

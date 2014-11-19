@@ -12,8 +12,8 @@ systems({
     provision: [
       'bundle install --path /azk/bundler',
       'npm install',
-      './node_modules/bower/bin/bower --allow-root install',
-      './node_modules/grunt-cli/bin/grunt cleanCopy',
+      'bower --allow-root install',
+      'grunt cleanCopy',
     ],
     workdir : '/azk/#{manifest.dir}',
     command : 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
@@ -34,6 +34,7 @@ systems({
     },
     envs: {
       // set instances variables
+      PATH     : './node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
       RUBY_ENV : 'development',
       BUNDLE_APP_CONFIG : '/azk/bundler',
     },
