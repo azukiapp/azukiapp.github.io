@@ -44,11 +44,11 @@
 systems({
   'web': {
     depends: ["database"],
-    image: "dockerfile/nodejs",
+    image: { docker: "azukiapp/node" },
     provision: [
       "npm install",
     ],
-    command: "node index.js",
+    command: "npm start",
     workdir: "/azk/#{manifest.dir}",
     mounts: {
       "/azk/#{manifest.dir}": path('.'),
@@ -62,7 +62,7 @@ systems({
     },
   },
   database: {
-    image: "azukiapp/redis",
+    image: { docker: "azukiapp/redis" },
     mounts: { "/data": persistent("data") },
     ports: {
       data: "6379/tcp",
@@ -82,12 +82,12 @@ systems({
   'web': {
     depends: ["database"],
     // Specify requisites for running your system.
-    image: "dockerfile/nodejs",
+    image: { docker: "azukiapp/node" },
     provision: [
       "npm install",
     ],
     // Tell how and where we must run your system.
-    command: "node index.js",
+    command: "npm start",
     workdir: "/azk/#{manifest.dir}",
     mounts: {
       "/azk/#{manifest.dir}": path("."),
@@ -103,7 +103,7 @@ systems({
     },
   },
   database: {
-    image: "azukiapp/redis",
+    image: { docker: "azukiapp/redis" },
     // Define persistent mounting points.
     mounts: { "/data": persistent("data") },
     // Map, name and tipify (udp/tcp) the ports you want to use.
@@ -126,12 +126,12 @@ systems({
  'web': {
   depends: ["database"],
   // Specify requisites for running your system.
-  image: "dockerfile/nodejs",
+  image: { docker: "azukiapp/node" },
   provision: [
    "npm install",
   ],
   // Tell how and where we must run your system.
-  command: "node index.js",
+  command: "npm start",
   workdir: "/azk/#{manifest.dir}",
   mounts: {
    "/azk/#{manifest.dir}": path("."),
@@ -149,7 +149,7 @@ systems({
   },
  },
  database: {
-   image: "azukiapp/redis",
+   image: { docker: "azukiapp/redis" },
    // Define persistent mounting points.
    mounts: { "/data": persistent("data") },
    // Map, name and tipify (udp/tcp) the ports
