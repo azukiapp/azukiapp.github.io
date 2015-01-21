@@ -41,3 +41,26 @@ assets:
   baseurl: /assets/
   sources:
     - _assets
+
+sponsors:
+  gold:
+    - jetbrains
+    - totvs
+    - twitter
+    - locaweb
+
+  silver:
+    - adtsys
+    - buscape
+    - coreos
+    - docker
+    - dropbox
+    - evernote
+    - facebook
+    - google
+    - mercadolivre
+    - mercadopago
+    - rocket
+    - sendgrid
+    - stripe
+    - twilio

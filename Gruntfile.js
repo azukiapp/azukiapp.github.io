@@ -160,6 +160,7 @@ module.exports = function(grunt) {
             'src/_assets/js/jquery.themepunch.revolution.min.js',
             'src/_assets/js/html5shiv.js',
             'src/_assets/js/bootstrap.js',
+            'src/_assets/js/core.js',
             'src/_assets/js/custom.js',
           ]
         }
