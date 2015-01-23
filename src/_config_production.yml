@@ -26,24 +26,25 @@ assets:
     - _assets
 
 
-sponsors_gold:
-  - jetbrains
-  - totvs
-  - twitter
-  - locaweb
+sponsors:
+  gold:
+    - jetbrains
+    - totvs
+    - twitter
+    - locaweb
 
-sponsors_silver:
-  - adtsys
-  - buscape
-  - coreos
-  - docker
-  - dropbox
-  - evernote
-  - facebook
-  - google
-  - mercadolivre
-  - mercadopago
-  - rocket
-  - sendgrid
-  - stripe
-  - twilio
+  silver:
+    - adtsys
+    - buscape
+    - coreos
+    - docker
+    - dropbox
+    - evernote
+    - facebook
+    - google
+    - mercadolivre
+    - mercadopago
+    - rocket
+    - sendgrid
+    - stripe
+    - twilio
