@@ -7,7 +7,7 @@ systems({
     // Dependent systems
     depends: [],
     // More images:  http://images.azk.io
-    image: 'dynaum/ruby-bundler-node',
+    image: { docker: 'dynaum/ruby-bundler-node' },
     // Steps to execute before running instances
     provision: [
       'bundle install --path /azk/bundler',
