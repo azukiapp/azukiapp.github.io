@@ -44,13 +44,14 @@ assets:
 
 sponsors:
   gold:
+    - dualtec
     - jetbrains
     - totvs
-    - twitter
-    - locaweb
+    - adtsys
 
   silver:
-    - adtsys
+    - twitter
+    - locaweb
     - buscape
     - coreos
     - docker
