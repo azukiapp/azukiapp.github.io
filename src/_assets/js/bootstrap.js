@@ -1911,8 +1911,6 @@ if (typeof jQuery === 'undefined') {
     var activeTarget = this.activeTarget
     var i
 
-    console.log('\n>>---------\n scrollTop:', scrollTop, '\n>>---------\n');
-
     if (this.scrollHeight != scrollHeight) {
       this.refresh()
     }

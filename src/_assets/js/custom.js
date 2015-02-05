@@ -6,8 +6,8 @@ $(function() {
     ev.preventDefault();
     ev.stopPropagation();
 
-    if(Boolean($('.navbar-collapse').attr('aria-expanded'))) {
-      $(".navbar-collapse").collapse('hide');
+    if (Boolean($('.navbar-collapse').attr('aria-expanded'))) {
+      $('.navbar-collapse').collapse('hide');
     }
 
     var href = $.attr(this, 'href');
@@ -22,7 +22,7 @@ $(function() {
 
     //inactive all and put activeclass on the right place
     $('li.active').removeClass('active');
-    $(ev.target).parent().addClass('active').attr("tabindex",-1).focus();
+    $(ev.target).parent().addClass('active').attr('tabindex', -1).focus();
 
     return false;
   });
@@ -30,43 +30,55 @@ $(function() {
   if (document.location.hash !== '') {
     $('li.active').removeClass('active');
     var selectedAnchor = $('a[href=' + document.location.hash + ']:eq(0)');
-    selectedAnchor.parent().addClass('active').attr("tabindex",-1).focus();
+    selectedAnchor.parent().addClass('active').attr('tabindex', -1).focus();
   }
 
 });
 
-
 // Sponsors
 $(function() {
-  var $sponsors = $(".sponsors");
-  var $sponsors_gold    = $(".sponsors-gold", $sponsors);
-  var $sponsors_silver  = $(".sponsors-silver", $sponsors);
+  var $sponsors = $('.sponsors');
+  var $sponsorsGold    = $('.sponsors-gold', $sponsors);
+  var $sponsorsSilver  = $('.sponsors-silver', $sponsors);
 
-  var sponsors_order_gold   = $.urlParam("sog") ? $.urlParam("sog").split(',') : [];
-  var sponsors_order_silver = $.urlParam("sos") ? $.urlParam("sos").split(',') : [];
-  var sponsors_els    = $(".sponsor");
-  var sponsors_order  = [].concat(sponsors_order_gold, sponsors_order_silver);
+  var sponsorsOrderGold   = $.urlParam('sog') ? $.urlParam('sog').split(',') : [];
+  var sponsorsOrderSilver = $.urlParam('sos') ? $.urlParam('sos').split(',') : [];
+  var filter = $.urlParam('sfs');
+  var sponsorsEls    = $('.sponsor');
+  var sponsorsOrder  = [].concat(sponsorsOrderGold, sponsorsOrderSilver);
 
-  var ordered_els = [];
-  var default_els = [];
-  var gold_ix     = 0;
-  var gold_length = sponsors_order_gold.length || 4;
+  var goldIX     = 0;
+  var goldLength = sponsorsOrderGold.length || 4;
+  var silverIX     = 0;
+  var silverLength = sponsorsOrderSilver.length;
 
-  sponsors_els.each(function(ix, el) {
+  if (filter === 'true') {
+    silverLength = sponsorsOrderSilver.length;
+  } else if (!isNaN(parseInt(filter))) {
+    silverLength = parseInt(filter);
+  } else {
+    silverLength = sponsorsOrder.length;
+  }
+
+  sponsorsEls.each(function(ix, el) {
     var $el = $(el);
-    var id = $el.attr("id");
-    sponsors_order.push(id);
+    var id = $el.attr('id');
+    sponsorsOrder.push(id);
   });
-  $.unique(sponsors_order);
+  $.unique(sponsorsOrder);
 
-  $.each(sponsors_order, function(key, value) {
-    $el = $("#" + value);
+  $.each(sponsorsOrder, function(key, value) {
+    var $el = $('#' + value);
 
-    if (gold_ix < gold_length) {
-      $sponsors_gold.append($el);
-      gold_ix++;
+    console.log('silverIX', silverIX, $el);
+    if (goldIX < goldLength) {
+      $sponsorsGold.append($el);
+      goldIX++;
+    } else if (silverIX < silverLength) {
+      $sponsorsSilver.append($el);
+      silverIX++;
     } else {
-      $sponsors_silver.append($el);
-    };
+      $el.remove();
+    }
   });
 });
