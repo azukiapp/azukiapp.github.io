@@ -54,10 +54,16 @@ $(function() {
 
   if (filter === 'true') {
     silverLength = sponsorsOrderSilver.length;
-  } else if (!isNaN(parseInt(filter))) {
+  } else if (filter && !isNaN(parseInt(filter))) {
     silverLength = parseInt(filter);
   } else {
-    silverLength = sponsorsOrder.length;
+    silverLength = sponsorsEls.length;
+  }
+
+  if (goldLength < 4) {
+    $sponsorsGold.addClass('text-center');
+  } else {
+    $sponsorsGold.removeClass('text-center');
   }
 
   sponsorsEls.each(function(ix, el) {
@@ -70,7 +76,6 @@ $(function() {
   $.each(sponsorsOrder, function(key, value) {
     var $el = $('#' + value);
 
-    console.log('silverIX', silverIX, $el);
     if (goldIX < goldLength) {
       $sponsorsGold.append($el);
       goldIX++;

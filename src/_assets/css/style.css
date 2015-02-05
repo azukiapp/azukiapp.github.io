@@ -433,10 +433,14 @@ p, ul { color: rgba(34,42,49,.7); }
 	font: 100 24px/30px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif;
 }
 /* ======================================================================== */
-/* ! Testimonial
+/* ! Sponsors
 /* ======================================================================== */
 .sponsors .img-responsive {
   padding: 12px;
+}
+.text-center .sponsor {
+  float: none;
+  display: inline-block;
 }
 /* ======================================================================== */
 /* ! Testimonial
