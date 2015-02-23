@@ -1,0 +1,41 @@
+<section class="mini-wrapper bg-white">
+  <a class="anchor" id="sponsors">&nbsp;</a>
+  <div class="container">
+    <div class="row">
+      <div class="text-center col-sm-12 col-lg-12">
+        <hgroup>
+          <h2>Sponsors</h2>
+        </hgroup>
+      </div>
+    </div>
+
+    <div class="sponsors">
+      <div class="row mar-b60">
+
+        <div class="col-md-12">
+          <div class="row sponsors-gold">
+          {% for sponsor in site.sponsors.gold %}
+            {% capture sponsor_image %}{{ "images/sponsors/" }}{{ sponsor }}{{ ".png" }}{% endcapture %}
+            <div id="{{sponsor}}" class="sponsor col-xs-offset-2 col-xs-7 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3">
+              <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="row sponsors-silver">
+          {% for sponsor in site.sponsors.silver %}
+            {% capture sponsor_image %}{{ "images/sponsors/" }}{{ sponsor }}{{ ".png" }}{% endcapture %}
+            <div id="{{sponsor}}" class="sponsor col-xs-offset-2 col-xs-7 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3">
+              <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

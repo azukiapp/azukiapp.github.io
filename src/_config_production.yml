@@ -24,3 +24,10 @@ assets:
   baseurl: /assets/
   sources:
     - _assets
+
+
+sponsors:
+  gold:
+    - dualtec
+
+  silver:
