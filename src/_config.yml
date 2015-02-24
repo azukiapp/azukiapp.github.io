@@ -65,3 +65,24 @@ sponsors:
     - sendgrid
     - stripe
     - twilio
+
+  urls:
+    dualtec: http://www.dualtec.com.br/
+    jetbrains: https://www.jetbrains.com/
+    totvs: http://www.totvs.com/
+    adtsys: http://www.adtsys.com.br/
+    twitter: https://twitter.com/
+    locaweb: http://www.locaweb.com.br/
+    buscape: http://www.buscape.com.br/
+    coreos: https://coreos.com/
+    docker: https://www.docker.com/
+    dropbox: https://www.dropbox.com/
+    evernote: https://evernote.com
+    facebook: https://www.facebook.com/
+    google: https://www.google.com.br
+    mercadolivre: http://www.mercadolivre.com.br/
+    mercadopago: https://www.mercadopago.com.br/
+    rocket: https://github.com/coreos/rocket
+    sendgrid: https://sendgrid.com/
+    stripe: https://stripe.com/
+    twilio: https://www.twilio.com/

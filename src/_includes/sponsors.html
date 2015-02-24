@@ -17,7 +17,9 @@
           {% for sponsor in site.sponsors.gold %}
             {% capture sponsor_image %}{{ "images/sponsors/" }}{{ sponsor }}{{ ".png" }}{% endcapture %}
             <div id="{{sponsor}}" class="sponsor col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3">
-              <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
+              <a href="{{ site.sponsors.urls[sponsor] }}" target="_blank" >
+                <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
+              </a>
             </div>
           {% endfor %}
           </div>
@@ -30,7 +32,9 @@
           {% for sponsor in site.sponsors.silver %}
             {% capture sponsor_image %}{{ "images/sponsors/" }}{{ sponsor }}{{ ".png" }}{% endcapture %}
             <div id="{{sponsor}}" class="sponsor col-xs-6 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3">
-              <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
+              <a href="{{ site.sponsors.urls[sponsor] }}" target="_blank" >
+                <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
+              </a>
             </div>
           {% endfor %}
           </div>
