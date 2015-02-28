@@ -3,28 +3,36 @@ $(function() {
   // when nav bar links clicked, highlight them
   var navBarOrFootLinks = $('.navbar .nav > li > a, .footer-nav > li > a');
   navBarOrFootLinks.click(function(ev) {
-    ev.preventDefault();
-    ev.stopPropagation();
 
     if (Boolean($('.navbar-collapse').attr('aria-expanded'))) {
       $('.navbar-collapse').collapse('hide');
     }
 
     var href = $.attr(this, 'href');
-    $.scrollTo(href, {
-      duration: 1000,
-      easing:'easeInOutExpo',
+    // Scroll only if href is a anchor
+    if ($.attr(this, "href").substr(0,1) === "#") {
 
-      onAfter: function() {
-        history.pushState(null, null, href);
-      }
-    });
+      $.scrollTo(href, {
+        duration: 1000,
+        easing:'easeInOutExpo',
+
+        onAfter: function() {
+          history.pushState(null, null, href);
+        }
+
+      });
+
+    // hacks real links to avoid preventDefault() behavior
+    } else {
+      return true;
+    }
 
     //inactive all and put activeclass on the right place
     $('li.active').removeClass('active');
     $(ev.target).parent().addClass('active').attr('tabindex', -1).focus();
 
-    return false;
+    ev.preventDefault();
+    ev.stopPropagation();
   });
 
   if (document.location.hash !== '') {
