@@ -29,26 +29,9 @@ assets:
 sponsors:
   gold:
     - dualtec
-    - jetbrains
-    - totvs
-    - adtsys
 
   silver:
-    - twitter
-    - locaweb
-    - buscape
-    - coreos
-    - docker
-    - dropbox
-    - evernote
-    - facebook
-    - google
-    - mercadolivre
-    - mercadopago
-    - rocket
-    - sendgrid
-    - stripe
-    - twilio
+
 
   urls:
     dualtec: http://www.dualtec.com.br/openstack
