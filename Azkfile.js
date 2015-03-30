@@ -16,7 +16,7 @@ systems({
       'grunt cleanCopy',
     ],
     workdir : '/azk/#{manifest.dir}',
-    command : 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --watch --force_polling',
+    command : 'bundle exec jekyll serve -s ./src/ --config ./src/_config.yml --port=$HTTP_PORT --host=0.0.0.0 --watch --force_polling',
     shell   : '/bin/bash',
     // not expect application response
     scalable: {'default': 1},
