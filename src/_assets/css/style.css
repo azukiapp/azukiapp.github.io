@@ -182,6 +182,9 @@ strong {
 	position: relative;
 	padding: 60px 0 90px;
 }
+.sponsors-wrapper {
+  padding: 60px 0 0px !important;
+}
 .anchor {
 	position: absolute;
 	top: -80px;

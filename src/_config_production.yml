@@ -29,6 +29,7 @@ assets:
 sponsors:
   gold:
     - dualtec
+    - keenio
 
   silver:
 
@@ -53,3 +54,4 @@ sponsors:
     sendgrid: https://sendgrid.com/
     stripe: https://stripe.com/
     twilio: https://www.twilio.com/
+    keenio: http://keen.io/
