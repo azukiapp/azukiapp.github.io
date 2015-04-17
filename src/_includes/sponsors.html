@@ -22,21 +22,11 @@
               </a>
             </div>
           {% endfor %}
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="row sponsors-silver">
-          {% for sponsor in site.sponsors.silver %}
-            {% capture sponsor_image %}{{ "images/sponsors/" }}{{ sponsor }}{{ ".png" }}{% endcapture %}
-            <div id="{{sponsor}}" class="sponsor col-xs-6 col-sm-offset-1 col-sm-4 col-md-offset-0 col-md-3">
-              <a href="{{ site.sponsors.urls[sponsor] }}" target="_blank" >
-                <img src="{{ sponsor_image | asset_path }}" class="img-responsive">
-              </a>
-            </div>
-          {% endfor %}
+          <center>
+            <a class="underline-dotted-blue" style="color: #31b4ce" href="mailto:contact@azukiapp.com?subject=How do I become a sponsor?">
+              <span style="color: #31b4ce; font-size: 20px;">How do I become a sponsor?</span>
+            </a>
+          </center>
           </div>
         </div>
       </div>

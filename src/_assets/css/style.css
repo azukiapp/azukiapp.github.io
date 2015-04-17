@@ -286,8 +286,13 @@ p, ul { color: rgba(34,42,49,.7); }
 .navbar .nav > li > a.nav-images-link {
   display:inline-block;
 }
-.navbar .nav > li > a .underline-dotted-blue {
+
+.underline-dotted-blue {
   border-bottom: 1px dotted #30b4cb;
+}
+
+.underline-dotted-white {
+  border-bottom: 1px dotted #fff;
 }
 
 #forkme img {
