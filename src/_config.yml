@@ -44,17 +44,18 @@ assets:
 
 sponsors:
   gold:
+    - docker
     - dualtec
+    - keenio
+
+  silver:
     - jetbrains
     - totvs
     - adtsys
-
-  silver:
     - twitter
     - locaweb
     - buscape
     - coreos
-    - docker
     - dropbox
     - evernote
     - facebook
