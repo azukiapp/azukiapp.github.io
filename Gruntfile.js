@@ -208,12 +208,12 @@ module.exports = function(grunt) {
     // },
 
     shell: {
-        options: {
-            stderr: false
-        },
-        target: {
-            command: 'bundle exec jekyll build -s ./src/ --config ./src/_config_production.yml'
-        }
+      options: {
+        stderr: false
+      },
+      target: {
+        command: 'bundle exec jekyll build -s ./src/ --config ./src/_config_production.yml'
+      }
     },
 
   });
