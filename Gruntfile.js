@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     aws: {
       'accessKeyId' : process.env.AWS_ACCESS_KEY_ID,
       'secretKey'   : process.env.AWS_SECRET_KEY,
-      'bucket'      : process.env.AWS_BUCKET,
+      'bucket'      : process.env.AWS_PACKAGE_BUCKET,
     },
 
     aws_s3: {
@@ -69,7 +69,8 @@ module.exports = function(grunt) {
         region              : 'sa-east-1',
         uploadConcurrency   : 5,
         downloadConcurrency : 5,
-        bucket              : '<%= aws.bucket %>'
+        bucket              : '<%= aws.bucket %>',
+        access              : 'public-read'
       },
 
       deployIndex: {
@@ -118,7 +119,7 @@ module.exports = function(grunt) {
       main: {
         options: {mode: 'gzip'},
         files: [
-          {expand: false , src: ['./_site/index.html'] , dest: './build/_site/index.html' },
+          {expand: false , src: ['./_site/index.html'] , dest: './build/_site/index.html'},
           {expand: true ,
             src: [
               './_site/assets/**/*',

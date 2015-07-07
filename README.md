@@ -1,72 +1,41 @@
-# azk
+# azk landpage
 
-## English Version
-
-`azk` landing page: [http://azk.io](http://azk.io)
-
-`azk` is an open-source tool to help automate and manage the setup of developer environments.
-You can check the project [here](https://github.com/azukiapp/azk).
+deployed at [http://azk.io](http://azk.io)
 
 ### Installation
 
-Install `azk`
+1) Install `azk`
 
-  [https://github.com/azukiapp/azk#installation](https://github.com/azukiapp/azk#installation)
+- http://azk.io
 
-Start `azk agent`
+2) Start `azk agent`
 
-  ```bash
-  $ azk agent start
-  ```
+```sh
+$ azk agent start
+```
 
-Start projects
+3) Start projects
 
-  ```bash
-  azk start --open; azk logs --tail
-  ```
-
-### Deploy
-
-Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` file and run:
-
-  ```bash
-  $ azk shell -c 'grunt deploy'
-  ```
-
----
-
-## Portuguese Version
-
-`azk` landing page: [http://azk.io/](http://azk.io/)
-
-`azk` é uma ferramenta de código aberto para automação da montagem e da gestão de ambientes de desenvolvimento.
-Você pode checar o projeto [aqui](https://github.com/azukiapp/azk).
-
-### Instalação
-
-Instale o azk
-
-  [https://github.com/azukiapp/azk#installation](https://github.com/azukiapp/azk#installation)
-
-Inicie o `azk agent`
-
-  ```bash
-  azk agent start
-  ```
-
-Inicie os systemas do projeto
-
-  ```bash
-  azk start --open; azk logs --tail
-  ```
+```sh
+azk start -R -v --open && azk logs --follow
+```
 
 ### Deploy
 
-Adicione as chaves `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` e `AWS_BUCKET` no arquivo local `.env` e depois execute:
+Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_PACKAGE_BUCKET` keys in local `.env` file and
+.env
 
-  ```bash
-  $ azk shell -c 'grunt deploy'
-  ```
+```sh
+AWS_PACKAGE_BUCKET=azk-landapage-stage
+AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxx
+AWS_SECRET_KEY=xxxxxxxxxxxxxxx
+```
+
+run:
+
+```sh
+$ azk shell -c 'grunt deploy'
+```
 
 ## License
 
