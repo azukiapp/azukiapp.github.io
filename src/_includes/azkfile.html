@@ -62,7 +62,7 @@ systems({
     },
   },
   database: {
-    image: { docker: "azukiapp/redis" },
+    image: { docker: "redis" },
     mounts: { "/data": persistent("data") },
     ports: {
       data: "6379/tcp",
@@ -103,7 +103,7 @@ systems({
     },
   },
   database: {
-    image: { docker: "azukiapp/redis" },
+    image: { docker: "redis" },
     // Define persistent mounting points.
     mounts: { "/data": persistent("data") },
     // Map, name and tipify (udp/tcp) the ports you want to use.
@@ -149,7 +149,7 @@ systems({
   },
  },
  database: {
-   image: { docker: "azukiapp/redis" },
+   image: { docker: "redis" },
    // Define persistent mounting points.
    mounts: { "/data": persistent("data") },
    // Map, name and tipify (udp/tcp) the ports
