@@ -55,7 +55,7 @@ var _ = self.Prism = {
 					return clone;
 
 				case 'Array':
-					return o.map(function(v) { return _.util.clone(v); });
+					return o.slice();
 			}
 
 			return o;
@@ -166,6 +166,10 @@ var _ = self.Prism = {
 			grammar = _.languages[language];
 		}
 
+		if (!grammar) {
+			return;
+		}
+
 		// Set language on the element, if not present
 		element.className = element.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
 
@@ -174,10 +178,6 @@ var _ = self.Prism = {
 
 		if (/pre/i.test(parent.nodeName)) {
 			parent.className = parent.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
-		}
-
-		if (!grammar) {
-			return;
 		}
 
 		var code = element.textContent;
@@ -354,7 +354,7 @@ Token.stringify = function(o, language, parent) {
 		return o;
 	}
 
-	if (_.util.type(o) === 'Array') {
+	if (Object.prototype.toString.call(o) == '[object Array]') {
 		return o.map(function(element) {
 			return Token.stringify(element, language, o);
 		}).join('');
@@ -436,37 +436,37 @@ if (typeof module !== 'undefined' && module.exports) {
 ********************************************** */
 
 Prism.languages.markup = {
-	'comment': /<!--[\w\W]*?-->/,
+	'comment': /<!--[\w\W]*?-->/g,
 	'prolog': /<\?.+?\?>/,
 	'doctype': /<!DOCTYPE.+?>/,
 	'cdata': /<!\[CDATA\[[\w\W]*?]]>/i,
 	'tag': {
-		pattern: /<\/?[^\s>\/]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,
+		pattern: /<\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+))?\s*)*\/?>/gi,
 		inside: {
 			'tag': {
-				pattern: /^<\/?[^\s>\/]+/i,
+				pattern: /^<\/?[\w:-]+/i,
 				inside: {
 					'punctuation': /^<\/?/,
-					'namespace': /^[^\s>\/:]+:/
+					'namespace': /^[\w-]+?:/
 				}
 			},
 			'attr-value': {
-				pattern: /=(?:('|")[\w\W]*?(\1)|[^\s>]+)/i,
+				pattern: /=(?:('|")[\w\W]*?(\1)|[^\s>]+)/gi,
 				inside: {
-					'punctuation': /=|>|"/
+					'punctuation': /=|>|"/g
 				}
 			},
-			'punctuation': /\/?>/,
+			'punctuation': /\/?>/g,
 			'attr-name': {
-				pattern: /[^\s>\/]+/,
+				pattern: /[\w:-]+/g,
 				inside: {
-					'namespace': /^[^\s>\/:]+:/
+					'namespace': /^[\w-]+?:/
 				}
 			}
 
 		}
 	},
-	'entity': /&#?[\da-z]{1,8};/i
+	'entity': /&#?[\da-z]{1,8};/gi
 };
 
 // Plugin to make entity title show the real entity, idea by Roman Komarov
@@ -483,29 +483,29 @@ Prism.hooks.add('wrap', function(env) {
 ********************************************** */
 
 Prism.languages.css = {
-	'comment': /\/\*[\w\W]*?\*\//,
+	'comment': /\/\*[\w\W]*?\*\//g,
 	'atrule': {
-		pattern: /@[\w-]+?.*?(;|(?=\s*\{))/i,
+		pattern: /@[\w-]+?.*?(;|(?=\s*\{))/gi,
 		inside: {
-			'punctuation': /[;:]/
+			'punctuation': /[;:]/g
 		}
 	},
-	'url': /url\((?:(["'])(\\\n|\\?.)*?\1|.*?)\)/i,
-	'selector': /[^\{\}\s][^\{\};]*(?=\s*\{)/,
-	'string': /("|')(\\\n|\\?.)*?\1/,
-	'property': /(\b|\B)[\w-]+(?=\s*:)/i,
-	'important': /\B!important\b/i,
-	'punctuation': /[\{\};:]/,
-	'function': /[-a-z0-9]+(?=\()/i
+	'url': /url\((["']?).*?\1\)/gi,
+	'selector': /[^\{\}\s][^\{\};]*(?=\s*\{)/g,
+	'property': /(\b|\B)[\w-]+(?=\s*:)/ig,
+	'string': /("|')(\\\n|\\?.)*?\1/g,
+	'important': /\B!important\b/gi,
+	'punctuation': /[\{\};:]/g,
+	'function': /[-a-z0-9]+(?=\()/ig
 };
 
 if (Prism.languages.markup) {
 	Prism.languages.insertBefore('markup', 'tag', {
 		'style': {
-			pattern: /<style[\w\W]*?>[\w\W]*?<\/style>/i,
+			pattern: /<style[\w\W]*?>[\w\W]*?<\/style>/ig,
 			inside: {
 				'tag': {
-					pattern: /<style[\w\W]*?>|<\/style>/i,
+					pattern: /<style[\w\W]*?>|<\/style>/ig,
 					inside: Prism.languages.markup.tag.inside
 				},
 				rest: Prism.languages.css
@@ -516,15 +516,15 @@ if (Prism.languages.markup) {
 	
 	Prism.languages.insertBefore('inside', 'attr-value', {
 		'style-attr': {
-			pattern: /\s*style=("|').*?\1/i,
+			pattern: /\s*style=("|').+?\1/ig,
 			inside: {
 				'attr-name': {
-					pattern: /^\s*style/i,
+					pattern: /^\s*style/ig,
 					inside: Prism.languages.markup.tag.inside
 				},
 				'punctuation': /^\s*=\s*['"]|['"]\s*$/,
 				'attr-value': {
-					pattern: /.+/i,
+					pattern: /.+/gi,
 					inside: Prism.languages.css
 				}
 			},
@@ -540,34 +540,34 @@ if (Prism.languages.markup) {
 Prism.languages.clike = {
 	'comment': [
 		{
-			pattern: /(^|[^\\])\/\*[\w\W]*?\*\//,
+			pattern: /(^|[^\\])\/\*[\w\W]*?\*\//g,
 			lookbehind: true
 		},
 		{
-			pattern: /(^|[^\\:])\/\/.*/,
+			pattern: /(^|[^\\:])\/\/.*?(\r?\n|$)/g,
 			lookbehind: true
 		}
 	],
-	'string': /("|')(\\[\s\S]|(?!\1)[^\\\r\n])*\1/,
+	'string': /("|')(\\\n|\\?.)*?\1/g,
 	'class-name': {
-		pattern: /((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,
+		pattern: /((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/ig,
 		lookbehind: true,
 		inside: {
 			punctuation: /(\.|\\)/
 		}
 	},
-	'keyword': /\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
-	'boolean': /\b(true|false)\b/,
+	'keyword': /\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/g,
+	'boolean': /\b(true|false)\b/g,
 	'function': {
-		pattern: /[a-z0-9_]+\(/i,
+		pattern: /[a-z0-9_]+\(/ig,
 		inside: {
 			punctuation: /\(/
 		}
 	},
-	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/,
-	'operator': /[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|~|\^|%/,
-	'ignore': /&(lt|gt|amp);/i,
-	'punctuation': /[{}[\];(),.:]/
+	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/g,
+	'operator': /[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|~|\^|%/g,
+	'ignore': /&(lt|gt|amp);/gi,
+	'punctuation': /[{}[\];(),.:]/g
 };
 
 
@@ -576,44 +576,25 @@ Prism.languages.clike = {
 ********************************************** */
 
 Prism.languages.javascript = Prism.languages.extend('clike', {
-	'keyword': /\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield)\b/,
-	'number': /\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,
-	'function': /(?!\d)[a-z0-9_$]+(?=\()/i
+	'keyword': /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|function|get|if|implements|import|in|instanceof|interface|let|new|null|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield)\b/g,
+	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|-?Infinity)\b/g,
+	'function': /(?!\d)[a-z0-9_$]+(?=\()/ig
 });
 
 Prism.languages.insertBefore('javascript', 'keyword', {
 	'regex': {
-		pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,
+		pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/g,
 		lookbehind: true
-	}
-});
-
-Prism.languages.insertBefore('javascript', 'class-name', {
-	'template-string': {
-		pattern: /`(?:\\`|\\?[^`])*`/,
-		inside: {
-			'interpolation': {
-				pattern: /\$\{[^}]+\}/,
-				inside: {
-					'interpolation-punctuation': {
-						pattern: /^\$\{|\}$/,
-						alias: 'punctuation'
-					},
-					rest: Prism.languages.javascript
-				}
-			},
-			'string': /[\s\S]+/
-		}
 	}
 });
 
 if (Prism.languages.markup) {
 	Prism.languages.insertBefore('markup', 'tag', {
 		'script': {
-			pattern: /<script[\w\W]*?>[\w\W]*?<\/script>/i,
+			pattern: /<script[\w\W]*?>[\w\W]*?<\/script>/ig,
 			inside: {
 				'tag': {
-					pattern: /<script[\w\W]*?>|<\/script>/i,
+					pattern: /<script[\w\W]*?>|<\/script>/ig,
 					inside: Prism.languages.markup.tag.inside
 				},
 				rest: Prism.languages.javascript
@@ -628,77 +609,59 @@ if (Prism.languages.markup) {
      Begin prism-file-highlight.js
 ********************************************** */
 
-(function () {
-	if (!self.Prism || !self.document || !document.querySelector) {
-		return;
-	}
+(function(){
 
-	self.Prism.fileHighlight = function() {
+if (!self.Prism || !self.document || !document.querySelector) {
+	return;
+}
 
-		var Extensions = {
-			'js': 'javascript',
-			'html': 'markup',
-			'svg': 'markup',
-			'xml': 'markup',
-			'py': 'python',
-			'rb': 'ruby',
-			'ps1': 'powershell',
-			'psm1': 'powershell'
-		};
+var Extensions = {
+	'js': 'javascript',
+	'html': 'markup',
+	'svg': 'markup',
+	'xml': 'markup',
+	'py': 'python',
+	'rb': 'ruby',
+	'ps1': 'powershell',
+	'psm1': 'powershell'
+};
 
-		Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function(pre) {
-			var src = pre.getAttribute('data-src');
+Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function(pre) {
+	var src = pre.getAttribute('data-src');
+	var extension = (src.match(/\.(\w+)$/) || [,''])[1];
+	var language = Extensions[extension] || extension;
+	
+	var code = document.createElement('code');
+	code.className = 'language-' + language;
+	
+	pre.textContent = '';
+	
+	code.textContent = 'Loading…';
+	
+	pre.appendChild(code);
+	
+	var xhr = new XMLHttpRequest();
+	
+	xhr.open('GET', src, true);
 
-			var language, parent = pre;
-			var lang = /\blang(?:uage)?-(?!\*)(\w+)\b/i;
-			while (parent && !lang.test(parent.className)) {
-				parent = parent.parentNode;
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4) {
+			
+			if (xhr.status < 400 && xhr.responseText) {
+				code.textContent = xhr.responseText;
+			
+				Prism.highlightElement(code);
 			}
-
-			if (parent) {
-				language = (pre.className.match(lang) || [,''])[1];
+			else if (xhr.status >= 400) {
+				code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
 			}
-
-			if (!language) {
-				var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-				language = Extensions[extension] || extension;
+			else {
+				code.textContent = '✖ Error: File does not exist or is empty';
 			}
-
-			var code = document.createElement('code');
-			code.className = 'language-' + language;
-
-			pre.textContent = '';
-
-			code.textContent = 'Loading…';
-
-			pre.appendChild(code);
-
-			var xhr = new XMLHttpRequest();
-
-			xhr.open('GET', src, true);
-
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4) {
-
-					if (xhr.status < 400 && xhr.responseText) {
-						code.textContent = xhr.responseText;
-
-						Prism.highlightElement(code);
-					}
-					else if (xhr.status >= 400) {
-						code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-					}
-					else {
-						code.textContent = '✖ Error: File does not exist or is empty';
-					}
-				}
-			};
-
-			xhr.send(null);
-		});
-
+		}
 	};
-
-	self.Prism.fileHighlight();
+	
+	xhr.send(null);
+});
 
 })();
